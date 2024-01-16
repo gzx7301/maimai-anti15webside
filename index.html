@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<!-- saved from url=(0141)file:///E:/CODE/maimai-anti15webside/maimai%E3%81%A7%E3%82%89%E3%81%A3%E3%81%8F%E3%81%99NET%EF%BC%8D%E3%83%9B%E3%83%BC%E3%83%A0%EF%BC%8D.html -->
+<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes,shrink-to-fit=no">
+	<script> 
+		var baseW = 768;
+		var iOSW = 0;
+		var ua = navigator.userAgent.toLowerCase();
+		var isiOS = (ua.indexOf("iphone") > -1) || (ua.indexOf("ipod") > -1) || (ua.indexOf("ipad") > -1);
+		if(isiOS){
+			iOSW = document.documentElement.clientWidth;
+		}
+		window.addEventListener("resize", updateMetaViewport, false);
+		window.addEventListener("orientationchange", updateMetaViewport, false);
+		var ev = document.createEvent("UIEvent");
+		ev.initEvent("resize", true, true)
+		window.dispatchEvent(ev);
+		function updateMetaViewport(){
+			var viewportContent;
+			var w = window.outerWidth;
+			if(isiOS){
+				w = iOSW;
+			}
+			if(w < baseW){
+				viewportContent = "width=480,initial-scale=" + w/480 + ",user-scalable=yes,shrink-to-fit=no";
+			}else{
+				viewportContent = "width=device-width,initial-scale=1.0,user-scalable=yes,shrink-to-fit=no";
+			}
+			document.querySelector("meta[name='viewport']").setAttribute("content", viewportContent);
+		}
+	</script>
+
+
+	<title>maimaiでらっくす</title>
+	<link rel="stylesheet" href="./index_files/common.css">
+
+	</head><body><div class="wrapper t_c">
+					<div class="spmenu_toggle"></div>
+				<img src="./index_files/logo.png" class="logo p_5">
+			</div>
+	<div class="wrapper main_wrapper t_c">
+
+<div class="see_through_block m_15 m_t_10 p_10 p_r t_l f_0">
+	<div class="basic_block p_10 f_0">
+				<img loading="lazy" src="./index_files/saved_resource" class="w_112 f_l">
+		<div class="p_l_10 f_l">
+			<div class="trophy_block trophy_Normal p_3 t_c f_0">
+				<div class="trophy_inner_block f_13">
+					<div id="localStorage.pagecount">该设备已访问此页 79 次。</div>
+				</div>
+			</div>
+			<div class="m_b_5">
+				<div class="name_block f_l f_16">N A M E ☆</div>
+				<div class="f_r t_r f_0">
+					<div class="p_r p_3">
+						<img src="./index_files/rating_base_normal.png" class="h_30 f_r">
+						<div class="rating_block">23333</div>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+			<img src="./index_files/line_01.png" class="user_data_block_line">
+			<div class="clearfix"></div>
+			<img src="./index_files/course_rank_00T7GHJvGe.png" class="h_35 f_l">
+			<img src="./index_files/class_rank_s_00ZqZmdpb8.png" class="p_l_10 h_35 f_l">
+			<div class="p_l_10 f_l f_14"><img src="./index_files/icon_star.png" class="h_30 m_3 v_m">×0</div>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+	<img loading="lazy" src="./index_files/bab779e7ab508427.png" class="w_120 m_t_10 f_r">
+		<input type="text" minlength="2" id="myInput" placeholder="扫描或输入SGWCMAID..." required="" class="comment_block break f_l f_12">	
+		<div id="unlock.result" class="name_block f_l f_16"> </div>
+	<div class="clearfix"></div>
+
+
+
+<div class="town_block m_15 p_15">
+		<button onclick="postData()">
+			<img src="./index_files/logout.png" alt="提交" class="w_120 m_15 m_t_5">
+		</button>
+		<button onclick="postData()">
+			<img src="./index_files/camara.png" alt="扫码">
+		</button>
+</div>
+
+
+</div>
+
+
+
+	
+	
+	
+	
+	<script src="./index_files/qrcode.min.js.下载"></script>
+	<script>
+	var video = document.createElement("video");
+	var canvasElement = document.createElement("canvas");
+	var canvas = canvasElement.getContext("2d");
+	
+	function scanQR() {
+		navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } }).then(function(stream) {
+			video.srcObject = stream;
+			video.setAttribute("playsinline", true);
+			video.play();
+			requestAnimationFrame(tick);
+		});
+	
+		function tick() {
+			if (video.readyState === video.HAVE_ENOUGH_DATA) {
+				canvasElement.height = video.videoHeight;
+				canvasElement.width = video.videoWidth;
+				canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
+				var imageData = canvas.getImageData(0, 0, canvasElement.width, canvasElement.height);
+				var code = jsQR(imageData.data, imageData.width, imageData.height, {
+					inversionAttempts: "dontInvert",
+				});
+				if (code) {
+					document.getElementById("myInput").value = code.data;
+					video.pause();
+					video.srcObject.getTracks().forEach(track => track.stop());
+				} else {
+					requestAnimationFrame(tick);
+				}
+			} else {
+				requestAnimationFrame(tick);
+			}
+		}
+	}
+	
+	function postData() {
+    var inputVal = document.getElementById("myInput").value;
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "http://127.0.0.1:8888/logout", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function() {
+        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+            document.getElementById("unlock.result").innerText = this.responseText;
+        }
+    }
+    xhr.send("qr=" + inputVal);
+}
+
+
+if(localStorage.pagecount)
+    localStorage.pagecount = Number(localStorage.pagecount) + 1;
+else
+    localStorage.pagecount = 1;
+document.getElementById("localStorage.pagecount").innerText = "该设备已访问此页 " + localStorage.pagecount + " 次。";
+
+
+</script>
+
+</div></body></html>

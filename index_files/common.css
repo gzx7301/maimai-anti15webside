@@ -1,0 +1,3153 @@
+@charset "UTF-8";
+/*----------------------------------------------------------------------------------
+	◆基本指定
+----------------------------------------------------------------------------------*/
+body {
+	padding: 0;
+	margin: 0;
+	min-height: 100%;
+	background: #51bcf3;
+	background-attachment: fixed;
+	font-size: 16px;
+	line-height: 1.2rem;
+	color: #000;
+	line-height: 110%;
+	-webkit-text-size-adjust: 100%;
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+	-webkit-touch-callout: none;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	font-family: "ヒラギノ角ゴ Pro W3","メイリオ",Meiryo,"ＭＳ Ｐゴシック","MS P Gothic",sans-serif;
+}
+
+html, body {
+	height: 100%;
+}
+html {
+	overflow-y: scroll;
+}
+input, button, .basic_btn, .pointer {
+	cursor: pointer;
+}
+input[type=text],input[type=password] {
+	display: block;
+	width: 300px;
+	margin: 15px auto;
+	padding: 10px;
+	border: 1px;
+	box-shadow :
+		0 0 0 1px #51bcf3,
+		0 0 0 3px #2e94f4,
+		0 0 0 5px #fff,
+		1px 8px 8px rgba(0, 0, 0, 0.2);
+	-webkit-appearance: none;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#fff));
+	border-radius: 10px;
+}
+textarea {
+	display: block;
+	width: 400px;
+	min-height: 120px;
+	margin: 15px auto;
+	padding: 10px;
+	border: 1px;
+	box-shadow :
+		0 0 0 1px #51bcf3,
+		0 0 0 3px #2e94f4,
+		0 0 0 5px #fff,
+		1px 8px 8px rgba(0, 0, 0, 0.2);
+	resize: none;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#fff));
+	border-radius: 15px;
+}
+select {
+	padding: 8px 35px 8px 10px;
+	border: 2px solid #000;
+	border-radius: 10px;
+	outline: none;
+	vertical-align: middle;
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	background: #fff url(../img/back_select.png) no-repeat right center;
+}
+select::-ms-expand {
+	display: none;
+}
+label span {
+	padding: 0 0 0 26px;
+	display: inline-block;
+}
+label input[type="checkbox"]:not(#favorite) {
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+}
+label input[type="checkbox"] + span::before, label input[type="checkbox"] + span::after {
+	position: absolute;
+	top: -1px;
+	left: 0;
+	display: inline-block;
+	content: '';
+	box-sizing: border-box;
+}
+label input[type="checkbox"] + span::before {
+	z-index: 0;
+	background-color: transparent;
+	width: 22px;
+	height: 22px;
+	border: 2px #000 solid;
+	border-radius: 5px;
+}
+label input[type="checkbox"] + span::after {
+	z-index: 1;
+	margin: 3px 7px;
+	width: 8px;
+	height: 11px;
+}
+label input[type="checkbox"]:checked + span::before {
+	background-color: #26b3fc;
+	border: 2px #26b3fc solid;
+}
+label input[type="checkbox"]:checked + span::after {
+	border: 2px solid #fff;
+	border-width: 0 2px 2px 0;
+		-webkit-transform: rotate(45deg);
+		-ms-transform: rotate(45deg);
+		transform: rotate(45deg);
+}
+:focus {
+	outline: none;
+}
+button, input[type=submit] {
+	padding: 0;
+	margin: 0;
+	border: none;
+	background: none;
+	font-size: 16px;
+	color: #000;
+}
+button[type="submit"]:disabled {
+	cursor: default;
+}
+table {
+	width: 100%;
+}
+a {
+	color: #3fc6fc;
+}
+img {
+	border: none;
+	-webkit-touch-callout:none;
+	-webkit-user-select:none;
+	-moz-touch-callout:none;
+	-moz-user-select:none;
+	touch-callout:none;
+	user-select:none;
+}
+:disabled {
+	background-color: #dedede;
+}
+hr {
+	margin: 10px 0;
+	border: none;
+	border-top: 1px solid #000;
+}
+/* ---------- 色 ---------- */
+.black {
+	color: #000;
+}
+.gray {
+	color: #747474;
+}
+.white {
+	color: #fff;
+}
+.red {
+	color: #e60000;
+}
+.orange {
+	color: #ffb100;
+}
+.blue {
+	color: #1477e6;
+}
+.green {
+	color: #00b050;
+}
+.bluegreen {
+	color: #19e5c3;
+}
+.lightblue {
+	color: #3fc6fc;
+}
+/* ---------- 文字 ---------- */
+.break {
+	word-break: break-all;
+}
+.f_0 {
+	font-size: 0;
+	line-height: 0;
+}
+.f_10 {
+	font-size: 10px;
+	line-height: 1.1rem;
+}
+.f_11 {
+	font-size: 11px;
+	line-height: 1.2rem;
+}
+.f_12 {
+	font-size: 12px;
+	line-height: 1.2rem;
+}
+.f_13 {
+	font-size: 13px;
+	line-height: 1.2rem;
+}
+.f_14 {
+	font-size: 14px;
+	line-height: 1.2rem;
+}
+.f_15 {
+	font-size: 15px;
+	line-height: 1.2rem;
+}
+.f_16 {
+	font-size: 16px;
+	line-height: 1.2rem;
+}
+.f_20 {
+	font-size: 20px;
+	line-height: 1.2rem;
+}
+.f_29 {
+	font-size: 29px;
+	line-height: 1.2rem;
+}
+.f_b {
+	font-weight: bold;
+}
+.f_n {
+	font-weight: normal;
+}
+.l_h_0 {
+	line-height: 0;
+}
+.l_h_10 {
+	line-height: 1.0rem;
+}
+.l_h_14 {
+	line-height: 1.4rem;
+}
+.l_h_15 {
+	line-height: 1.5rem;
+}
+.t_c {
+	text-align: center;
+}
+.t_r {
+	text-align: right;
+}
+.t_l {
+	text-align: left;
+}
+.v_m {
+	vertical-align: middle;
+}
+.v_t {
+	vertical-align: top;
+}
+.v_b {
+	vertical-align: bottom;
+}
+.underline {
+	text-decoration: underline;
+}
+.indent_1 {
+	padding-left: 1em;
+	text-indent: -1em;
+}
+/* ---------- 線 ---------- */
+
+/* ---------- 基本 ---------- */
+.h_10 {
+	height: 10px;
+}
+.h_12 {
+	height: 12px;
+}
+.h_14 {
+	height: 14px;
+}
+.h_16 {
+	height: 16px;
+}
+.h_18 {
+	height: 18px;
+}
+.h_20 {
+	height: 20px;
+}
+.h_24 {
+	height: 24px;
+}
+.h_25 {
+	height: 25px;
+}
+.h_30 {
+	height: 30px;
+}
+.h_35 {
+	height: 35px;
+}
+.h_40 {
+	height: 40px;
+}
+.h_45 {
+	height: 45px;
+}
+.h_50 {
+	height: 50px;
+}
+.h_55 {
+	height: 55px;
+}
+.h_180 {
+	height: 180px;
+}
+.h_430 {
+	height: 430px;
+}
+.w_71 {
+	width: 71px;
+}
+.w_80 {
+	width: 80px;
+}
+.w_84 {
+	width: 84px;
+}
+.w_96 {
+	width: 96px;
+}
+.w_112 {
+	width: 112px;
+}
+.w_120 {
+	width: 120px;
+}
+.w_130 {
+	width: 130px;
+}
+.w_135 {
+	width: 135px;
+}
+.w_160 {
+	width: 160px;
+}
+.w_180 {
+	width: 180px;
+}
+.w_190 {
+	width: 190px;
+}
+.w_215 {
+	width: 215px;
+}
+.w_230 {
+	width: 230px;
+}
+.w_250 {
+	width: 250px;
+}
+.w_270 {
+	width: 270px;
+}
+.w_280 {
+	width: 280px;
+}
+.w_300 {
+	width: 300px;
+}
+.w_310 {
+	width: 310px;
+}
+.w_320 {
+	width: 320px;
+}
+.w_340 {
+	width: 340px;
+}
+.w_349 {
+	width: 349px;
+}
+.w_396 {
+	width: 396px;
+}
+.w_415 {
+	width: 415px;
+}
+.w_430 {
+	width: 430px;
+}
+.w_450 {
+	width: 450px;
+}
+.w_480 {
+	width: 480px;
+}
+.m_2 {
+	margin: 2px;
+}
+.m_3 {
+	margin: 3px;
+}
+.m_5 {
+	margin: 5px;
+}
+.m_10 {
+	margin: 10px;
+}
+.m_15 {
+	margin: 15px;
+}
+.m_25 {
+	margin: 25px;
+}
+.m_t_0 {
+	margin-top: 0;
+}
+.m_t_5 {
+	margin-top: 5px;
+}
+.m_t_10 {
+	margin-top: 10px;
+}
+.m_t_15 {
+	margin-top: 15px;
+}
+.m_t_20 {
+	margin-top: 20px;
+}
+.m_b_0 {
+	margin-bottom: 0;
+}
+.m_b_3 {
+	margin-bottom: 3px;
+}
+.m_b_5 {
+	margin-bottom: 5px;
+}
+.m_b_10 {
+	margin-bottom: 10px;
+}
+.m_b_15 {
+	margin-bottom: 15px;
+}
+.m_b_20 {
+	margin-bottom: 20px;
+}
+.m_b_25 {
+	margin-bottom: 25px;
+}
+.m_b_30 {
+	margin-bottom: 30px;
+}
+.m_b_35 {
+	margin-bottom: 35px;
+}
+.m_l_3 {
+	margin-left: 3px;
+}
+.m_r_5 {
+	margin-right: 5px;
+}
+.m_l_10 {
+	margin-left: 10px;
+}
+.m_l_20 {
+	margin-left: 20px;
+}
+.m_r_0 {
+	margin-right: 0;
+}
+.m_r_5 {
+	margin-right: 5px;
+}
+.m_r_10 {
+	margin-right: 10px;
+}
+.m_r_25 {
+	margin-right: 25px;
+}
+.m_auto {
+	margin: 0 auto;
+}
+.p_3 {
+	padding: 3px;
+}
+.p_4 {
+	padding: 4px;
+}
+.p_5 {
+	padding: 5px;
+}
+.p_10 {
+	padding: 10px;
+}
+.p_15 {
+	padding: 15px;
+}
+.p_t_0 {
+	padding-top: 0;
+}
+.p_t_5 {
+	padding-top: 5px;
+}
+.p_t_10 {
+	padding-top: 10px;
+}
+.p_t_15 {
+	padding-top: 15px;
+}
+.p_t_20 {
+	padding-top: 20px;
+}
+.p_b_0 {
+	padding-bottom: 0;
+}
+.p_b_5 {
+	padding-bottom: 5px;
+}
+.p_b_10 {
+	padding-bottom: 10px;
+}
+.p_l_0 {
+	padding-left: 0;
+}
+.p_l_5 {
+	padding-left: 5px;
+}
+.p_l_10 {
+	padding-left: 10px;
+}
+.p_l_30 {
+	padding-left: 30px;
+}
+.p_r_0 {
+	padding-right: 0;
+}
+.p_r_5 {
+	padding-right: 5px;
+}
+.p_r_10 {
+	padding-right: 10px;
+}
+.p_r_40 {
+	padding-right: 40px;
+}
+.d_b {
+	display: block;
+}
+.d_i {
+	display: inline;
+}
+.d_ib {
+	display: inline-block;
+}
+.d_f {
+	display: flex;
+}
+.d_n {
+	display: none;
+}
+.f_l {
+	float: left;
+}
+.f_r {
+	float: right;
+}
+.p_a {
+	position: absolute;
+}
+.p_r {
+	position: relative;
+}
+.p_s {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+	z-index: 99;
+}
+.p_u {
+	position: unset!important;
+}
+.clearfix {
+	clear: both;
+}
+.collapse {
+	border-collapse: collapse;
+}
+.ellipsis {
+	text-overflow: ellipsis;
+}
+.o_v {
+	overflow: visible!important;
+}
+.table_f {
+	table-layout: fixed;
+}
+.col2 {
+	width: 50%;
+}
+.col3 {
+	width: 33.3%;
+}
+.col3_2 {
+	width: 66.6%;
+}
+.col4 {
+	width: 25%;
+}
+.col5 {
+	width: 20%;
+}
+.col8 {
+	width: 12.5%;
+}
+/* ---------- 箱 ---------- */
+.main_wrapper {
+	background: url(../img/back_base.png) repeat-y;
+}
+.wrapper {
+	display: block;
+	width: 480px;
+	height: auto;
+	margin: 0 auto;
+	padding: 0;
+	position: relative;
+	overflow: hidden;
+}
+.container {
+	display: block;
+	width: 450px;
+	height: auto;
+	margin: 15px auto;
+	position: relative;
+	background-color: #fff;
+	box-shadow: 0 0 0 2px #2e94f4, 0 0 0 6px #fff, 1px 8px 8px rgba(0, 0, 0, 0.2), 0 12px rgba(0, 0, 0, 0.2);
+	border-radius: 10px;
+}
+.container_red {
+	display: block;
+	width: 440px;
+	height: auto;
+	margin: 20px auto;
+	min-height: 100%;
+	position: relative;
+	background-color: #fff;
+	box-shadow: 0 0 0 2px #ff6a6a, 0 0 0 6px #fff, 1px 8px 8px rgba(0, 0, 0, 0.2), 0 12px rgba(0, 0, 0, 0.2);
+	border-radius: 10px;
+}
+.basic_block {
+	background-color: #fff;
+	box-shadow: 1px 3px 0px rgba(0, 0, 0, 0.4);
+	border-radius: 5px;
+}
+.gray_block {
+	background-color: #eaeaea;
+	box-shadow: 1px 3px 0px rgba(0, 0, 0, 0.4);
+	border-radius: 5px;
+}
+.black_block {
+	background-color: rgba(30,30,30,0.7);
+	border-radius: 5px;
+	color: #fff;
+}
+.town_block {
+	background: #fff url(../img/back_town_01.png) bottom no-repeat;
+	background-size: 485px;
+	box-shadow: 1px 3px 0px rgba(0, 0, 0, 0.4);
+	border-radius: 5px;
+}
+.see_through_block {
+	background-color: rgba(255, 255, 255, 0.6);
+	box-shadow: 1px 3px 0px rgba(0, 0, 0, 0.4);
+	border: 2px solid #000;
+	border-radius: 5px;
+}
+.screw_block {
+	padding: 15px 17px;
+	background: url(../img/icon_screw.png) left top no-repeat,
+				url(../img/icon_screw.png) right top no-repeat,
+				url(../img/icon_screw.png) left bottom no-repeat,
+				url(../img/icon_screw.png) right bottom no-repeat, #fff;
+	box-shadow: 1px 3px 0px rgba(0, 0, 0, 0.4);
+	border: 1px solid #b3b3b3;
+	border-radius: 5px;
+}
+.warning_block {
+	background-color: #ff786e;
+	box-shadow: 1px 3px 0px rgba(0, 0, 0, 0.4);
+	border-radius: 5px;
+}
+.border_block {
+	border: 1px solid #dedede;
+	border-radius: 5px;
+	background: #fff;
+	position: relative;
+}
+.recommend_music_block {
+	background: #fff url(../img/back_town_03.png) bottom no-repeat;
+	background-color: #c9eafb;
+	background-size: 485px;
+	box-shadow: 1px 3px 0px rgba(0, 0, 0, 0.4);
+	border-radius: 5px;
+}
+.block_info {
+	position: absolute;
+	top: 2px;
+	right: 7px;
+}
+.link_block {
+	position: absolute;
+	bottom: 5px;
+	right: 5px;
+}
+.itemname_block {
+	display: table-cell;
+	vertical-align: middle;
+	height: 80px;
+}
+.title {
+	width: 410px;
+}
+.sub_title {
+	width: 260px;
+	height: 34px;
+	line-height: 38px;
+	background: url(../img/info_base_01.png) bottom no-repeat;
+}
+.basic_btn {
+	border-radius: 8px;
+	box-shadow: 1px 3px 0px rgba(0, 0, 0, 0.4);
+	position: relative;
+	overflow: hidden;
+}
+input[type=text].pager {
+	display: inline;
+	width: 40px;
+	margin: 5px 5px 5px 15px;
+	padding: 5px;
+}
+/* ---------- エリア ---------- */
+.town_area {
+	background: #f0f0f0 url(../img/back_town_02.png) bottom no-repeat;
+}
+.see_through_area {
+	border: solid #fff;
+	border-width: 2px 0 2px 0;
+	background-color: rgba(255, 255, 255, 0.6);
+	box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.4), 0px 2px 5px rgba(0, 0, 0, 0.4);
+}
+.border_area {
+	border: solid #fff;
+	border-width: 2px 0 2px 0;
+	box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.4), 0px 2px 5px rgba(0, 0, 0, 0.4);
+}
+.on_area {
+	background:  -webkit-linear-gradient(top, transparent 55%, #ffe839 45%);
+	background: linear-gradient(transparent 55%, #ffe839 45%);
+}
+/* ---------- 背景 ---------- */
+
+/* ---------- 画像 ---------- */
+.gray_img {
+	-webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+	opacity: 0.5;
+}
+.submenu_selected {
+	position: absolute;
+	top: -11px;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+.diffbtn_selected {
+	position: absolute;
+	top: -14px;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+/* ---------- アニメーション ---------- */
+.footer_marquee {
+	background: url(../img/back_area_dx.png) repeat-x;
+	background-size: 480px auto;
+	background-position: 0 0;
+	animation: marquee 30s linear infinite;
+	display: flex;
+}
+@-webkit-keyframes marquee {
+	0%   { -webkit-transform: translateX(0vw); }
+	100% { -webkit-transform: translateX(-100%); }
+}
+@keyframes marquee {
+	from { background-position: 0 0; }
+	to   { background-position: -480px 0; }
+}
+/* ---------- 固有設定 ---------- */
+/* ---------- ヘッダ ---------- */
+.logo {
+	width: 260px;
+}
+.setting {
+	position: absolute;
+	right: 7px;
+	top: 48px;
+	z-index: 99;
+}
+.setting img {
+	width: 34px;
+}
+.line_top {
+	margin: 0 0 4px 0;
+}
+.line_bottom {
+	margin: 4px 0;
+}
+.menu {
+	background: #7ed3ff;
+}
+/* ---------- ハンバーガーメニュー ---------- */
+nav.spmenu_navigation {
+	position: fixed;
+	z-index: 100;
+	top: 0;
+	left: 0;
+	background-color: rgba(126,211,255,0.6);
+	text-align: center;
+	transform: translateY(-100%);
+	transition: all 0.6s;
+	width: 100%;
+	height: 100%;
+}
+nav.spmenu_navigation.active {
+	transform: translateY(0%);
+}
+.spmenu_toggle {
+	position: fixed;
+	background-image: url(../img/btn_page_menu_open.png);
+	top: 5px;
+	right: -100%;
+	z-index: 101;
+	width: 74px;
+	height: 74.5px;
+	background-position: top;
+	background-size: contain;
+	color: transparent;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	font-size: 0;
+	pointer-events: all;
+	cursor: pointer;
+}
+.spmenu_toggle.active {
+	background-image: url(../img/btn_page_menu_close.png);
+}
+/* ---------- フッタ ---------- */
+footer {
+	margin: 30px 0 0 0;
+}
+.footer {
+	margin: 47px 0 0 0;
+	color: #fff;
+	background-color: #55ab37;
+}
+.footer_line {
+	margin: 10px 0;
+	border: none;
+	border-top: 2px solid #fff;
+}
+.footer_banner {
+	background-color: rgba(255, 255, 255, 0.2);
+	box-shadow: 1px 3px 0px rgba(0, 0, 0, 0.4);
+	border-radius: 5px;
+	color: #fff;
+}
+.footer_banner_chuni {
+	display: inline-block;
+	width: 217px;
+	height: 72px;
+	object-fit: cover;
+	white-space: pre-wrap;
+	object-position: 25% 100%;
+}
+.footer_banner_ongeki {
+	display: inline-block;
+	width: 217px;
+	height: 72px;
+	object-fit: cover;
+	white-space: pre-wrap;
+	object-position: 0px 0px;
+}
+/* ---------- フローティング ---------- */
+#page-top {
+	position: fixed;
+	width: 60px;
+	right: 5px;
+	bottom: 55px;
+	z-index: 9999;
+}
+#page-bottom {
+	position: fixed;
+	width: 60px;
+	right: 5px;
+	bottom: 5px;
+	z-index: 9999;
+}
+/* ---------- aime選択 ---------- */
+.charge_aime_block {
+	background: #ffec74;
+	border-radius: 5px;
+	box-shadow: 1px 3px 0px rgba(0, 0, 0, 0.4);
+	border: 2px solid #000;
+}
+/* ---------- お知らせ ---------- */
+.btn_news {
+	position: absolute;
+	top: -33px;
+	left: 32px;
+}
+.btn_info {
+	position: absolute;
+	top: -33px;
+	left: 247px;
+}
+.btn_news_on, .btn_info_on {
+	top: -44px;
+}
+/* ---------- ユーザデータ ---------- */
+.trophy_block {
+	width: 268px;
+	height: 25px;
+	margin: 0 0 5px 0;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.trophy_inner_block{
+	width: 259px;
+	height: 24px;
+	margin: 0 2px;
+	white-space: nowrap;
+	overflow: hidden;
+	color: #fff;
+	text-shadow:
+		black 1px 1px 0, black -1px -1px 0,/*右下、左上*/
+		black -1px 1px 0, black 1px -1px 0,/*右上、左下*/
+		black 0px 1px 0, black  0-1px 0,/*右、左*/
+		black -1px 0 0, black 1px 0 0;
+}
+.trophy_Normal {
+	background: url(../img/trophy_normal.png)no-repeat;
+}
+.trophy_Bronze {
+	background: url(../img/trophy_bronze.png)no-repeat;
+}
+.trophy_Silver {
+	background: url(../img/trophy_silver.png)no-repeat;
+}
+.trophy_Gold {
+	background: url(../img/trophy_gold.png)no-repeat;
+}
+.trophy_Rainbow {
+	background: url(../img/trophy_rainbow.png)no-repeat;
+}
+.name_block {
+	width: 158px;
+	height: 27px;
+	margin: 3px 0;
+	padding: 5px 3px 3px 3px;
+	border: 1px solid #dedede;
+	background-color: #fff;
+	background-size: 34px;
+	box-shadow: 1px 3px 0px rgba(0, 0, 0, 0.4);
+	border-radius: 5px;
+}
+.rating_block {
+	position: absolute;
+	top: 7px;
+	right: 9px;
+	width: 73px;
+	height: 21px;
+	line-height: 21px;
+	color: white;
+	text-align: right;
+	font-size: 16px;
+}
+.user_data_block_line {
+	width: 280px;
+	margin: 0 0 4px 0;
+}
+.comment_block {
+	width: 306px;
+	min-height: 120px;
+	margin: 10px 0 0 0;
+	padding: 10px;
+	background: #dcf3ff;
+	border-radius: 10px;
+}
+/* ユーザーコメント詳細/簡易表示 */
+.grad-wrap {
+	position: relative;
+	padding-bottom: 30px;
+}
+.grad-wrap + .grad-wrap {
+	margin-top: 30px;
+}
+.grad-trigger {
+	z-index: 2;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	width: 100px;
+	margin: auto;
+	color: #1477e6;
+	font-size: 12px;
+	text-align: center;
+	cursor: pointer;
+}
+.grad-trigger::after {
+	content: "詳細表示"
+}
+.grad-trigger:hover {
+	text-decoration: underline;
+}
+.grad-trigger .fa {
+	margin-right: .5em;
+}
+.grad-item {
+	position: relative;
+	overflow: hidden;
+}
+.grad-item.is-hide {
+	height: 100px;
+}
+.grad-item p + p {
+	margin-top: 1em;
+}
+.grad-item::before {
+	display: block;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	content: "";
+	width: 100%;
+	height: 30px;
+	background: -webkit-linear-gradient(top, rgba(220,243,255,0) 0%, rgba(220,243,255,0.9) 50%, rgba(220,243,255,0.9) 50%, #dcf3ff 100%);
+	background: linear-gradient(top, rgba(220,243,255,0) 0%, rgba(220,243,255,0.9) 50%, rgba(220,243,255,0.9) 50%, #dcf3ff 100%);
+}
+.grad-trigger.is-show::after {
+	content: "簡易表示"
+}
+.grad-trigger.is-show .fa {
+	transform: rotate(180deg);
+}
+.grad-trigger.is-show + .grad-item::before {
+	display: none;
+}
+.honor_frame {
+	position: absolute;
+	left: -3px;
+	top: 0;
+}
+.honor_num1 {
+	position: absolute;
+	top: 151px;
+	left: 257px;
+	height: 15px;
+}
+.honor_num2 {
+	position: absolute;
+	top: 151px;
+	left: 267px;
+	height: 15px;
+}
+.last_play_date {
+	position: absolute;
+	top: -12px;
+	right: -2px;
+	width: 200px;
+	background: #ffffff;
+	line-height: 14px;
+	font-size: 12px;
+	border: 2px solid #000;
+	box-shadow: 1px 1px 0px rgb(0 0 0 / 40%);
+	border: 2px solid #000;
+	border-radius: 5px;
+}
+/* ---------- ホーム ---------- */
+.home_info {
+	position: absolute;
+	top: 167px;
+	right: -2px;
+}
+.cardsoon_info {
+	position: absolute;
+	top: 34px;
+	left: 140px;
+	width: 103px;
+}
+.cardsoon_info_2 {
+	position: absolute;
+	top: 12px;
+	left: 280px;
+	width: 103px;
+}
+/* ---------- キャンペーン ---------- */
+.campaign_img_block {
+	width: 200px;
+	margin: 0 auto;
+	padding: 8px;
+	background: -webkit-linear-gradient(top, #3fc5fb, #3fc5fb 21%, #a8ef3e 21%, #a8ef3e 41%, #ffe839 41%, #ffe839 61%, #ffa034 61%, #ffa034 81%, #ff6d51 81%, #ff6d51 100%);
+	background: linear-gradient(#3fc5fb, #3fc5fb 21%, #a8ef3e 21%, #a8ef3e 41%, #ffe839 41%, #ffe839 61%, #ffa034 61%, #ffa034 81%, #ff6d51 81%, #ff6d51 100%);
+	box-shadow: 1px 3px 0px rgba(0, 0, 0, 0.4);
+	border-radius: 5px;
+	height: 220px;
+}
+.campaign_img_block img {
+	width: 184px;
+	border-radius: 5px;
+}
+.campaign_pt_block {
+	position: absolute;
+	bottom: 1px;
+	right: 18px;
+	line-height: 20px;
+	color: #ff6d51;
+	text-shadow: white 1px 1px 0, white -1px -1px 0,/*右下、左上*/ white -1px 1px 0, white 1px -1px 0,/*右上、左下*/ white 0px 1px 0, white 0-1px 0,/*右、左*/ white -1px 0 0, white 1px 0 0;
+}
+.campaign_code_block {
+	padding: 10px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+	border: 2px solid #dcdcdc;
+	background-image: url(../img/back_campaign_code.png);
+	background-size: cover;
+}
+.campaign_goods_table td {
+	border-bottom: 1px dashed #b3b3b3;
+}
+.campaign_goods_table tr:last-child td {
+	border-bottom: none;
+}
+.campaign_goods_table td:first-child img {
+	margin: 3px 3px 5px 3px;
+	border: 1px solid #dedede;
+	border-radius: 5px;
+}
+.btn_exchange_on {
+	background: url(../img/btn_change_goods.png) no-repeat;
+	background-size: cover;
+	height: 40px;
+	width: 90px;
+	margin-right: 5px;
+	cursor: pointer;
+}
+.btn_exchange_off {
+	background: url(../img/btn_change_goods.png) no-repeat;
+	background-size: cover;
+	-webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+	opacity: 0.5;
+	height: 40px;
+	width: 90px;
+	margin-right: 5px;
+}
+
+/* ---------- 大会 ---------- */
+.entry_block {
+	background: #ffec74;
+	border-radius: 5px;
+	box-shadow: 1px 3px 0px rgba(0, 0, 0, 0.4);
+	border: 2px solid #000;
+}
+.btn_tournamentinfo {
+	position: absolute;
+	top: -35px;
+	left: 15px;
+	width: 140px;
+	border: 3px solid #fff;
+	border-bottom: none;
+	box-shadow: -2px -2px 2px rgba(0, 0, 0, 0.2), 2px -2px 2px rgba(0, 0, 0, 0.2);
+	border-radius: 5px 5px 0 0;
+}
+.btn_scoreattack {
+	position: absolute;
+	top: -35px;
+	left: 170px;
+	width: 140px;
+	border: 3px solid #fff;
+	border-bottom: none;
+	box-shadow: -2px -2px 2px rgba(0, 0, 0, 0.2), 2px -2px 2px rgba(0, 0, 0, 0.2);
+	border-radius: 5px 5px 0 0;
+}
+.btn_tournamentranking {
+	position: absolute;
+	top: -35px;
+	left: 325px;
+	width: 140px;
+	border: 3px solid #fff;
+	border-bottom: none;
+	box-shadow: -2px -2px 2px rgba(0, 0, 0, 0.2), 2px -2px 2px rgba(0, 0, 0, 0.2);
+	border-radius: 5px 5px 0 0;
+}
+.btn_tournamentinfo_on, .btn_scoreattack_on, .btn_tournamentranking_on {
+	top: -46px;
+}
+/* ---------- congratulations ---------- */
+.finale_area {
+	border: solid #256ac4;
+	border-width: 2px 0 2px 0;
+	background-color: #606fb3;
+	background-image: url(../maimai-img/bg_star.png);
+	background-size: 540px;
+	background-repeat: repeat;
+	box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.4), 0px 2px 5px rgba(0, 0, 0, 0.4);
+}
+.finale_musiccount_img_block {
+	width: 70px;
+	height: 37px;
+}
+.finale_musiccount_img_block img {
+	max-height: 37px;
+}
+.finale_btn_maimai {
+	position: absolute;
+	top: -43px;
+	left: 45px;
+	width: 175px;
+	border: 3px solid #256ac4;
+	border-bottom: none;
+	box-shadow: -2px -2px 2px rgba(0, 0, 0, 0.2), 2px -2px 2px rgba(0, 0, 0, 0.2);
+	border-radius: 5px 5px 0 0;
+}
+.finale_btn_ranking {
+	position: absolute;
+	top: -43px;
+	left: 260px;
+	width: 175px;
+	border: 3px solid #256ac4;
+	border-bottom: none;
+	box-shadow: -2px -2px 2px rgba(0, 0, 0, 0.2), 2px -2px 2px rgba(0, 0, 0, 0.2);
+	border-radius: 5px 5px 0 0;
+}
+.finale_btn_on {
+	top: -58px;
+}
+.finale_icon {
+	width: 127px;
+	margin: 5px 0 5px 5px;
+}
+.finale_totallv {
+	position: absolute;
+	top: 123px;
+	left: 5px;
+	width: 127px;
+	font-size: 12px;
+	color: #fff;
+	text-shadow: black 1px 1px 0, black -1px -1px 0,/*右下、左上*/ black -1px 1px 0, black 1px -1px 0,/*右上、左下*/ black 0px 1px 0, black 0-1px 0,/*右、左*/ black -1px 0 0, black 1px 0 0;
+}
+.finale_user_block {
+	position: relative;
+	width: 308px;
+	height: 128px;
+	margin: 5px;
+}
+.finale_trophy_block {
+	width: 268px;
+	height: 25px;
+	margin: 5px;
+	white-space: nowrap;
+	overflow: hidden;
+	background-color: rgba(255, 255, 255, 0.8);
+	box-shadow: 1px 2px 0px rgba(0, 0, 0, 0.4);
+	border-radius: 13px;
+}
+.finale_trophy_inner_block {
+	width: 259px;
+	height: 24px;
+	margin: 0 2px;
+	white-space: nowrap;
+	overflow: hidden;
+	color: #fff;
+	text-shadow: black 1px 1px 0, black -1px -1px 0,/*右下、左上*/ black -1px 1px 0, black 1px -1px 0,/*右上、左下*/ black 0px 1px 0, black 0-1px 0,/*右、左*/ black -1px 0 0, black 1px 0 0;
+}
+.finale_grade {
+	position: absolute;
+	top: -2px;
+	right: -5px;
+	width: 60px;
+}
+.finale_username {
+	position: absolute;
+	top: 48px;
+	left: 9px;
+	font-size: 14px;
+	color: #fff;
+	text-shadow: black 1px 1px 0, black -1px -1px 0,/*右下、左上*/ black -1px 1px 0, black 1px -1px 0,/*右上、左下*/ black 0px 1px 0, black 0-1px 0,/*右、左*/ black -1px 0 0, black 1px 0 0;
+}
+.finale_rating {
+	position: absolute;
+	top: 68px;
+	left: 9px;
+	font-size: 12px;
+	color: #fff;
+	text-shadow: black 1px 1px 0, black -1px -1px 0,/*右下、左上*/ black -1px 1px 0, black 1px -1px 0,/*右上、左下*/ black 0px 1px 0, black 0-1px 0,/*右、左*/ black -1px 0 0, black 1px 0 0;
+}
+.finale_point_block {
+	position: absolute;
+	top: 85px;
+	left: 5px;
+	width: 95px;
+	height: 37px;
+	padding: 4px 5px;
+	line-height: 14px;
+	background-image: url(../maimai-img/icon_cheese02.png);
+	background-size: 32px;
+	background-repeat: no-repeat;
+	background-position: 60px 7px;
+	background-color: rgba(255, 255, 255, 0.9);
+	box-shadow: 1px 2px 0px rgba(0, 0, 0, 0.4);
+	border-radius: 5px;
+}
+.finale_region_block {
+	position: absolute;
+	top: 85px;
+	left: 103px;
+	width: 95px;
+	height: 37px;
+	padding: 10px 15px;
+	background-image: url(../maimai-img/icon_angya.png);
+	background-size: 26px;
+	background-repeat: no-repeat;
+	background-position: 64px 7px;
+	background-color: rgba(255, 255, 255, 0.9);
+	box-shadow: 1px 2px 0px rgba(0, 0, 0, 0.4);
+	border-radius: 5px;
+}
+.finale_nameplate {
+	position: absolute;
+	right: 6px;
+	bottom: 7px;
+	width: 100px;
+}
+.finale_diff_btn_on {
+	width: 62px;
+	height: 42px;
+	padding: 3px 0;
+	display: inline-block;
+	background: #203744;
+	border-radius: 5px 5px 0 0;
+	font-size: 10px;
+	line-height: 10px;
+}
+.finale_diff_btn_off {
+	width: 62px;
+	height: 42px;
+	padding: 3px 0;
+	display: inline-block;
+	background: #7f9aa9;
+	border-radius: 5px 5px 0 0;
+	font-size: 10px;
+	line-height: 10px;
+}
+.finale_all {
+	color: #fff;
+	text-shadow: 0px 1px 1px #333;
+}
+.finale_easy {
+	color: #0095d9;
+	text-shadow: 0px 1px 1px #333;
+}
+.finale_basic {
+	color: #00b300;
+	text-shadow: 0px 1px 1px #333;
+}
+.finale_advanced {
+	color: #fab300;
+	text-shadow: 0px 1px 1px #333;
+}
+.finale_expert {
+	color: #f62626;
+	text-shadow: 0px 1px 1px #333;
+}
+.finale_master {
+	color: #b44c97;
+	text-shadow: 0px 1px 1px #333;
+}
+.finale_remaster {
+	color: #b44c97;
+	text-shadow: 0px 1px 1px #333;
+}
+.finale_musiccount_block {
+	width: 434px;
+	margin: 0 auto;
+	padding: 4px;
+	background: #203744;
+	border-radius: 0 0 5px 5px;
+}
+.finale_ranking_title_block {
+	width: 450px;
+	margin: 5px 15px 0 15px;
+	padding: 5px;
+	background: url(../maimai-img/back_rank_top.png) right bottom no-repeat;
+}
+.finale_ranking_top_block {
+	margin: 0 15px 5px 15px;
+	padding: 4px;
+	background: #43c3cb;
+	box-shadow: 1px 3px 0px rgba(0, 0, 0, 0.4);
+	border-radius: 5px;
+}
+/* ---------- 設定変更 ---------- */
+.set_symbol_btn {
+	width: 32px;
+	height: 32px;
+	margin: 3px;
+	background: #1477e6;
+	line-height: 1rem;
+	box-shadow: 2px 2px #aaa;
+	border-radius: 17px;
+	color: #fff;
+}
+.em_space {
+	background: url(../img/back_em_space.png) center no-repeat #1477e6;
+}
+.option_select {
+	min-width: 130px;
+}
+.option_detail_block {
+	margin: 5px 0;
+	padding: 5px;
+	border: 2px solid #3441bd;
+	border-radius: 5px;
+	background: #51bcf3;
+}
+.option_detail_block img {
+	border-radius: 5px;
+}
+.favorite_p_s {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 224px;
+	z-index: 98;
+}
+.favorite_checkbox_frame {
+	display: block;
+	width: 95.5%;
+	border-radius: 5px;
+	padding: 5px;
+	position: relative;
+	background-color: #FFF;
+	box-shadow: inset 1px 1px 10px rgba(115, 194, 193, 0.3), inset -1px -1px 10px rgba(115, 194, 193, 0.3), 3px 3px 0px rgba(0, 0, 0, 0.2);
+	border: 1px #77A29C solid;
+	color: #000;
+	line-height: 120%;
+	text-align: center;
+	z-index: 20;
+}
+.favorite_checkbox {
+	cursor: pointer;
+}
+.favorite_checkbox input[type="checkbox"] {
+	width: 20px;
+	height: 20px;
+	margin: 5px;
+}
+.favorite_music_name {
+    text-align: left;
+    font-weight: bold;
+    padding: 6px 10px;
+}
+/* ---------- プレイヤーデータ ---------- */
+.playerdata_back {
+	position: absolute;
+	right: 11px;
+	bottom: 3px;
+	width: 137px;
+}
+.musiccount_block {
+	width: 205px;
+	margin: 4px;
+	border: 2px solid #26b3fc;
+	box-shadow: 1px 3px 0px rgba(0, 0, 0, 0.4);
+	border-radius: 5px;
+}
+.musiccount_img_block {
+	width: 70px;
+	height: 37px;
+	background: #26b3fc;
+}
+.musiccount_img_block img {
+	max-height: 37px;
+}
+.musiccount_counter_block {
+	padding: 0 10px 0 0;
+	background: url(../img/ranking/back.png), #f5feff;
+	line-height: 37px;
+	border-radius: 3px;
+}
+.class_geuge_meter, .class_geuge_frame {
+	left: 23px;
+}
+.class_point_box {
+	background-color: #ffeaea;
+	border: 2px solid #fabebe;
+	border-radius: 8px;
+}
+.class_point_txt {
+	top: 165px
+}
+.legend_num_block {
+	position: absolute;
+	top: 68px;
+	width: 230px;
+	left: 50%;
+	transform: translateX(-50%);
+	-webkit-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+}
+/* ---------- でらっくすパス ---------- */
+.pass_block {
+	position: relative;
+	background: url(../img/back_star_01.png) no-repeat bottom;
+	background-color: rgba(255, 255, 255, 0.5);
+	border-radius: 5px;
+	box-shadow: 1px 3px 0px rgba(0, 0, 0, 0.4);
+	border: 2px solid #000;
+}
+.card {
+	width: 165px;
+	margin: 0 5px 0 0;
+	border: 2px solid #fff;
+	border-radius: 10px;
+}
+.card_info_block {
+	width: 265px;
+}
+.card_bonus_block {
+	min-height: 44px;
+}
+.card_bonus_block table {
+	background-color: #fff;
+	border-radius: 5px;
+}
+.card_limit_icon {
+	position: absolute;
+	top: -10px;
+	right: 1px;
+}
+/* ---------- チケット ---------- */
+.ticket_title {
+	top: 22px;
+	left: 60px;
+	width: 330px;
+}
+.ticket_img {
+	top: 77px;
+	left: 100px;
+	width: 250px;
+}
+.ticket_txt {
+	top: 183px;
+	left: 60px;
+	width: 330px;
+}
+/* ---------- 全国行脚 ---------- */
+.region_map_container {
+	display: block;
+	position: relative;
+	width: 430px;
+	padding: 5px;
+	margin: 0 25px 10px 25px;
+	background-color: #FFF;
+	box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
+	border-radius: 5px;
+	border: 2px solid #000;
+	color: #000;
+	line-height: 120%;
+	text-align: center;
+	z-index: 20;
+}
+.region_map_block {
+	display: block;
+	width: 378px;
+	height: 360px;
+	margin: 10px auto;
+	padding: 0;
+	position: relative;
+	background: url(../img/region/japan_map_bg.png) no-repeat;
+	background-size: 100%;
+}
+.region_map_block:after {
+	display: block;
+	width: 378px;
+	height: 360px;
+	content: "";
+	position: absolute;
+	background: url(../img/region/japan_map_line.png) no-repeat;
+	background-size: 100%;
+	top: 0;
+	left: 0;
+}
+.region_map_block_img {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.region_map_block_img img {
+	width: 378px;
+}
+.region_top_img {
+	position: absolute;
+	top: 0;
+	left: -28px;
+}
+.region_comp_img {
+	width: 378px;
+}
+.region_map_text {
+	display: block;
+	width: 150px;
+	height: 50px;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	font-weight: bold;
+	line-height: 100%;
+	top: 50px;
+	left: 40px;
+}
+/* ---------- すたんぷカード ---------- */
+.btn_type_partner {
+	position: absolute;
+	top: -47px;
+	left: 45px;
+	width: 175px;
+	height: 45px;
+	border: 3px solid #fff;
+	border-bottom: none;
+	box-shadow: -2px -2px 2px rgba(0, 0, 0, 0.2), 2px -2px 2px rgba(0, 0, 0, 0.2);
+	border-radius: 5px 5px 0 0;
+	overflow: hidden;
+}
+.btn_type_partner img {
+	width: 175px;
+}
+.btn_type_other {
+	position: absolute;
+	top: -47px;
+	left: 260px;
+	width: 175px;
+	height: 45px;
+	border: 3px solid #fff;
+	border-bottom: none;
+	box-shadow: -2px -2px 2px rgba(0, 0, 0, 0.2), 2px -2px 2px rgba(0, 0, 0, 0.2);
+	border-radius: 5px 5px 0 0;
+	overflow: hidden;
+}
+.btn_type_other img {
+	width: 175px;
+}
+.stampcard_container {
+	position: relative;
+	width: 448px;
+	height: 181px;
+	margin: 5px 15px 10px 15px;
+}
+.stampcard_title {
+	position: absolute;
+	top: 0;
+	left: 8px;
+}
+.stampcard_block {
+	width: 288px;
+	height: 28px;
+	margin: 0 0 13px 5px;
+	white-space: nowrap;
+	overflow: hidden;
+	background: url(../img/stampcard/name_plate_base.png)no-repeat;
+	padding: 6px;
+	background-size:cover;
+}
+.stampcard_inner_block{
+	width: 258px;
+	height: 24px;
+	margin: 0 2px;
+	white-space: nowrap;
+	overflow: hidden;
+	color: #fff;
+	font-weight: bold;
+	padding-left: 16px;
+}
+.stampcard_back {
+	position: absolute;
+	top: 40px;
+	left: 8px;
+}
+.stampcard_set {
+	position: absolute;
+	top: 5px;
+	left: 0;
+}
+.stampcard_comp {
+	position: absolute;
+	top: 41%;
+	right: 26%;
+	z-index: 100;
+	transform:rotate(10deg);
+}
+.stamp_count_1 {
+	position: absolute;
+	top: 57px;
+	left: 33px;
+}
+.stamp_count_2 {
+	position: absolute;
+	top: 57px;
+	left: 97px;
+}
+.stamp_count_3 {
+	position: absolute;
+	top: 57px;
+	left: 161px;
+}
+.stamp_count_4 {
+	position: absolute;
+	top: 57px;
+	left: 225px;
+}
+.stamp_count_5 {
+	position: absolute;
+	top: 57px;
+	left: 289px;
+}
+.stamp_count_6 {
+	position: absolute;
+	top: 110px;
+	left: 33px;
+}
+.stamp_count_7 {
+	position: absolute;
+	top: 110px;
+	left: 97px;
+}
+.stamp_count_8 {
+	position: absolute;
+	top: 110px;
+	left: 161px;
+}
+.stamp_count_9 {
+	position: absolute;
+	top: 110px;
+	left: 225px;
+}
+.stamp_count_10 {
+	position: absolute;
+	top: 110px;
+	left: 289px;
+}
+.stampcard_partner {
+	position: absolute;
+	top: 72px;
+	right: 21px;
+	width: 65px;
+}
+.stampcard_icon {
+	position: absolute;
+	top: 76px;
+	right: 25px;
+	width: 61px;
+}
+.stampcard_icon_frame {
+	position: absolute;
+	top: 71px;
+	right: 20px;
+}
+.stampcard_music {
+	position: absolute;
+	top: 78px;
+	right: 28px;
+	width: 56px;
+}
+.stampcard_frame {
+	position: absolute;
+	top: 94px;
+	right: 27px;
+	width: 58px;
+}
+.stampcard_nameplate {
+	position: absolute;
+	top: 96px;
+	right: 27px;
+	width: 58px;
+	height: 21px;
+	object-fit: cover;
+	object-position: 100%; 
+}
+.stampcard_backflame {
+	position: absolute;
+	top: 71px;
+	right: 20px;
+	width: 68px;
+}
+/* ---------- フレンド ---------- */
+.friend_favorite_icon {
+	position: absolute;
+	top: -10px;
+	left: -10px;
+}
+.friend_comment_block {
+	margin: 10px 0 0 0;
+	padding: 10px;
+	background: #dcf3ff;
+	border-radius: 10px;
+}
+.friend_code_icon {
+	position: absolute;
+	top: -19px;
+	right: 0;
+}
+.friend_accept_flag {
+	position: absolute;
+	top: -11px;
+	right: -1px;
+}
+.friend_vs_block {
+	position: relative;
+	width: 450px;
+	height: 94px;
+	margin: 0 auto;
+	background: url(../img/back_friend_vs.png) no-repeat;
+	box-shadow: 1px 3px 0px rgba(0, 0, 0, 0.4);
+	border: 2px solid #fff;
+	border-radius: 5px;
+}
+.friend_vs_you_block{
+	position: absolute;
+	top: 15px;
+	left: 8px;
+	width: 184px;
+	height: 61px;
+	padding: 3px;
+	background: rgba(255, 255, 255, 0.6);
+	border-radius: 5px;
+}
+.friend_vs_friend_block{
+	position: absolute;
+	top: 15px;
+	right: 8px;
+	width: 184px;
+	height: 61px;
+	padding: 3px;
+	background: rgba(255, 255, 255, 0.6);
+	border-radius: 5px;
+}
+.friend_vs_usertype_icon {
+	position: absolute;
+	top: -13px;
+	left: 2px;
+}
+.friend_vs_music_star_icon {
+	position: absolute;
+	top: 1px;
+	left: 10px;
+	width: 20px;
+}
+.friend_your_code_icon {
+	right: -120px;
+}
+/* ---------- Twitter ---------- */
+.twitter_icon {
+	border-radius: 50px;
+}
+/* ---------- プレイ履歴 ---------- */
+.playlog_top_container {
+	height: 34px;
+	line-height: 35px;
+}
+.playlog_diff {
+	height: 24px;
+	padding: 0 2px 0 0;
+}
+.playlog_vs {
+	width: 23px;
+	padding: 0 2px 3px 0;
+}
+.playlog_vs_result {
+	max-width: 61px;
+	max-height: 29px;
+}
+.playlog_basic_container {
+	position: relative;
+	margin: 2px 0 0 0;
+	padding: 4px;
+	background: #45c124;
+	box-shadow: 1px 3px 0px #025235;
+	border-radius: 10px;
+}
+.playlog_advanced_container {
+	position: relative;
+	margin: 2px 0 0 0;
+	padding: 4px;
+	background: #ffba01;
+	box-shadow: 1px 3px 0px #c7450c;
+	border-radius: 10px;
+}
+.playlog_expert_container {
+	position: relative;
+	margin: 2px 0 0 0;
+	padding: 4px;
+	background: #ff7b7b;
+	box-shadow: 1px 3px 0px #c02138;
+	border-radius: 10px;
+}
+.playlog_master_container {
+	position: relative;
+	margin: 2px 0 0 0;
+	padding: 4px;
+	background: #9f51dc;
+	box-shadow: 1px 3px 0px #67148d;
+	border-radius: 10px;
+}
+.playlog_remaster_container {
+	position: relative;
+	margin: 2px 0 0 0;
+	padding: 4px;
+	background: #dbaaff;
+	box-shadow: 1px 3px 0px #8c2cd5;
+	border-radius: 10px;
+}
+.playlog_utage_container {
+	position: relative;
+	margin: 2px 0 0 0;
+	padding: 4px;
+	background: #ff6ffd;
+	box-shadow: 1px 3px 0px #d00bb1;
+	border-radius: 10px;
+}
+.playlog_music_effect {
+	position: absolute;
+	top: 5px;
+	left: 5px;
+}
+.playlog_music_kind_icon {
+	position: absolute;
+	top: 0px;
+	left: 0;
+	height: 16px;
+}
+.playlog_music_kind_icon_utage {
+	position: absolute;
+    top: 30%;
+	left: 19%;
+}
+.playlog_music_kind_icon_utage_text {
+	position: absolute;
+	width: 40px;
+	top: 9%;
+	left: 15%;
+}
+.playlog_result_block {
+	width: 250px;
+	overflow: hidden;
+}
+.playlog_achievement_label_block {
+	width: 135px;
+	padding: 3px 15px;
+	background-color: rgba(76,76,76, 0.5);
+	border-radius: 0 10px 10px 0;
+}
+.playlog_achievement_label_block img {
+	width: 100px;
+}
+.playlog_achievement_txt {
+	position: absolute;
+	top: 43px;
+	right: 100px;
+	width: 150px;
+	font-size: 29px;
+	color: #fff;
+	text-shadow:
+		black 1px 1px 0, black -1px -1px 0,/*右下、左上*/
+		black -1px 1px 0, black 1px -1px 0,/*右上、左下*/
+		black 0px 1px 0, black  0-1px 0,/*右、左*/
+		black -1px 0 0, black 1px 0 0;
+}
+.playlog_achievement_newrecord {
+	position: absolute;
+	top: 27px;
+	right: 100px;
+	width: 73px;
+}
+.playlog_scorerank {
+	position: absolute;
+	top: 10px;
+	right: 5px;
+	width: 87px;
+}
+.playlog_scoreline {
+	position: static;
+	width: 380px;
+	margin: 48px 0 0 0px;
+}
+.playlog_result_innerblock {
+	position: static;
+	height: 80px;
+	margin: 58px 0 3px 5px;
+}
+.playlog_score_block {
+	height: 29px;
+	padding: 5px;
+	background: #424242;
+	box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.4);
+	border-radius: 5px;
+}
+.playlog_score_block_star {
+	border-radius: 5px 5px 0 5px;
+}
+.playlog_deluxscore_newrecord {
+	position: absolute;
+	top: 78px;
+	right: 16px;
+	width: 73px;
+}
+.playlog_deluxscore_star {
+	position: absolute;
+	top: 112px;
+	right: 9px;
+	height: 14px;
+}
+.playlog_matching_icon {
+	height: 28px;
+	margin: 13px 15px 5px 5px;
+}
+.playlog_chara_container {
+	position: relative;
+	width: 19%;
+	min-height: 105px;
+	margin: 0 0 0 0;
+	display: inline-block;
+	background: url(../img/playlog/back_character.png) no-repeat;
+	background-position: 8px 15px;
+	background-size: 73px;
+}
+.playlog_chara_block {
+	margin: -20px -30px;
+	display: inline-block;
+	transform: scale(0.5);
+}
+.playlog_chara_lv_block {
+	position: absolute;
+	top: 86px;
+	left: 11px;
+	width: 70px;
+	box-shadow: 1px 3px 0px rgba(0, 0, 0, 0.4);
+	background: #4bbbf5;
+	border-radius: 10px;
+	color: white;
+}
+.playlog_chara_star_block {
+	position: absolute;
+	top: 5px;
+	left: 2px;
+	width: 48px;
+	background: rgba(255, 255, 255, 0.96);
+	border-radius: 10px;
+}
+.playlog_chara_star_block img {
+	width: 19px;
+}
+.playlog_notes_detail {
+	width: 300px;
+	border: 2px solid #3e9cf5;
+	border-radius: 5px;
+	border-collapse: separate;
+	border-spacing: 0;
+	line-height: 14px;
+	background: #fff;
+}
+.playlog_notes_detail th {
+	padding: 3px 5px;
+	color: #4762b1;
+	border: 1px solid #c0e5f7;
+}
+.playlog_notes_detail th img {
+	height: 8px;
+}
+.playlog_notes_detail td {
+	padding: 4px 5px;
+	border: 1px solid #c0e5f7;
+}
+.playlog_notes_detail td img {
+	height: 8px;
+}
+.playlog_notes_detail tr td:nth-child(2) img {
+	height: 15px;
+}
+.playlog_notes_detail tr td:nth-child(2) {
+	min-width: 48px;
+	color: #ffbc09;
+}
+.playlog_notes_detail tr td:nth-child(3) img {
+	height: 6px;
+}
+.playlog_notes_detail tr td:nth-child(3) {
+	min-width: 48px;
+	color: #ff9d00;
+}
+.playlog_notes_detail tr td:nth-child(4) {
+	min-width: 48px;
+	color: #f75ea3;
+}
+.playlog_notes_detail tr td:nth-child(5) {
+	min-width: 48px;
+	color: #2fca4c;
+}
+.playlog_notes_detail tr td:nth-child(6) {
+	min-width: 48px;
+	color: #8c8c8c;
+}
+.playlog_notes_detail tr:nth-child(even) th,.playlog_notes_detail tr:nth-child(even) td {
+	background: #e1f1f9;
+}
+.playlog_rating_detail_block {
+	width: 142px;
+}
+.playlog_fl_block {
+	width: 200px;
+	height: 25px;
+	box-shadow: 1px 2px 0px rgba(0, 0, 0, 0.4);
+	background: #fff;
+	border-radius: 15px;
+}
+.playlog_grade_block {
+	padding: 0 0 5px 0;
+	border-bottom: 2px dashed #aaa;
+}
+.playlog_rating_val_block {
+	min-width: 55px;
+	padding: 0 3px 0 0;
+	border: 1px solid #aaa;
+	border-radius: 3px;
+	background: #fff;
+}
+.playlog_life_block {
+	position: absolute;
+	top: 6px;
+	right: 10px;
+}
+.playlog_recommend_music_img_dx {
+	background: -webkit-linear-gradient(top, #ff6d51, #ff6d51 21%, #ffa034 21%, #ffa034 41%, #ffe839 41%, #ffe839 61%, #a8ef3e 61%, #a8ef3e 81%, #3fc5fb 81%, #3fc5fb 100%);
+	background: linear-gradient(#ff6d51, #ff6d51 21%, #ffa034 21%, #ffa034 41%, #ffe839 41%, #ffe839 61%, #a8ef3e 61%, #a8ef3e 81%, #3fc5fb 81%, #3fc5fb 100%);
+	box-shadow: 1px 3px 0px rgba(0, 0, 0, 0.4);
+	border-radius: 10px;
+}
+.playlog_recommend_music_img_standard {
+	background-color: #3fc5fb;
+	box-shadow: 1px 3px 0px rgba(0, 0, 0, 0.4);
+	border-radius: 10px;
+}
+.playlog_recommend_music_kind_icon {
+	position: absolute;
+	top: 5px;
+	right: 8px;
+	height: 16px;
+}
+
+/* ---------- 段位認定 ---------- */
+.course_mode_back {
+	background-repeat: repeat-y;
+	background-size: contain;
+}
+.course_clear {
+	position: absolute;
+	top: 7px;
+	left: 50px;
+	width: 104px;
+}
+.course_hanamaru {
+	position: absolute;
+	top: 25px;
+	left: 60px;
+}
+.course_img {
+	position: absolute;
+	top: 43px;
+	left: 50px;
+	height: 50px;
+}
+.course_life {
+	position: absolute;
+	top: 32px;
+	left: 170px;
+}
+.course_life_txt {
+	position: absolute;
+	top: 60px;
+	left: 175px;
+	width: 60px;
+	font-size: 24px;
+	color: #fff;
+}
+.course_achievement_txt {
+	position: absolute;
+	top: 45px;
+	right: 62px;
+	width: 150px;
+	font-size: 29px;
+	color: #fcc400;
+	text-shadow:
+		black 1px 1px 0, black -1px -1px 0,/*右下、左上*/
+		black -1px 1px 0, black 1px -1px 0,/*右上、左下*/
+		black 0px 1px 0, black  0-1px 0,/*右、左*/
+		black -1px 0 0, black 1px 0 0;
+}
+.course_deluxscore_txt {
+	position: absolute;
+	top: 78px;
+	right: 50px;
+	width: 100px;
+}
+.coursemusic_container {
+	margin: 5px 24px 10px 24px;
+}
+.coursemusic_name_block {
+	width: 370px;
+	margin: 5px 0 0 0;
+	padding: 5px 8px;
+	background: #313131;
+	border-radius: 5px;
+	color: #fff;
+}
+.coursemusic_life_block {
+	position: absolute;
+	right: 70px;
+	bottom: 4px;
+}
+.coursemusic_life_txt {
+	position: absolute;
+	top: 2px;
+	right: 6px;
+}
+/* ---------- 楽曲別レコード ---------- */
+.music_scorelist_table tr {
+	border-bottom: 1px solid #fff;
+}
+.music_scorelist_table tr:last-child {
+	border: none;
+}
+.music_scorelist_table td {
+	padding: 5px 0;
+}
+.music_img {
+	border: 1px solid #000;
+}
+.music_kind_icon {
+	position: absolute;
+	top: -9px;
+	right: 0px;
+	height: 18px;
+}
+.music_kind_icon_dx {
+	position: absolute;
+	top: -20px;
+	right: 69px;
+	height: 22px;
+	padding: 2px 3px 0 3px;
+}
+.music_kind_icon_standard {
+	position: absolute;
+	top: -20px;
+	right: 0;
+	height: 22px;
+	padding: 2px 3px 0 3px;
+}
+.music_kind_icon_utage {
+	margin-top: -3px;
+}
+.music_kind_icon_utage_text {
+	margin-top: -21px;
+	margin-left: 3px;
+}
+.music_kind_icon_utage_latest {
+	top: -13px;
+	right: -6px;
+	height: 18px;
+}
+.music_kind_icon_utage_text_latest {
+	margin-top: 4px;
+	margin-left: 11px;
+	width: 36px;
+}
+.music_kind_icon_utage_text_detail {
+	margin-top: -27px;
+	margin-left: 3px;
+}
+.music_kind_icon_utage_text_photo {
+	margin-top: -19px;
+	margin-left: 2px;
+}
+.music_name_block {
+	width: 390px;
+	margin: 5px 0 0 0;
+	padding: 5px 8px;
+	background: #313131;
+	border-radius: 5px;
+	color: #fff;
+}
+.music_lv_block {
+	position: absolute;
+	top: 13px;
+	right: 4px;
+	width: 45px;
+	height:43px;
+	padding: 17px 0 0 0;
+	background: url(../img/back_music_level.png);
+	border-radius: 5px;
+}
+.music_lv_back {
+	width: 45px;
+	height:43px;
+	padding: 17px 0 0 0;
+	background: url(../img/back_music_level.png);
+	border-radius: 5px;
+}
+.music_score_block {
+	height: 22px;
+	margin: 5px 5px 0 0;
+	padding: 5px;
+	background: rgba(255, 255, 255, 0.9);
+	border-radius: 5px;
+	line-height: 12px;
+}
+.music_basic_score_back {
+	position: relative;
+	background: url(../img/back_music_basic.png) no-repeat 0 5px, #6fe163;
+	border: 2px solid #000;
+	box-shadow: 1px 3px 0px #025235;
+	border-radius: 5px;
+}
+.music_basic_btn_on {
+	background: #6fe163;
+	border: 2px solid #025235;
+	border-bottom: none;
+	border-radius: 10px 10px 0 0;
+}
+.music_basic_btn_off {
+	background: #025235;
+	border: 2px solid #025235;
+	border-bottom: none;
+	border-radius: 10px 10px 0 0;
+}
+.music_advanced_score_back {
+	position: relative;
+	background: url(../img/back_music_advanced.png) no-repeat 0 5px, #f8df3a;
+	border: 2px solid #c7450c;
+	box-shadow: 1px 3px 0px #c7450c;
+	border-radius: 5px;
+}
+.music_advanced_btn_on {
+	background: #f8df3a;
+	border: 2px solid #c7450c;
+	border-bottom: none;
+	border-radius: 10px 10px 0 0;
+}
+.music_advanced_btn_off {
+	background: #c7450c;
+	border: 2px solid #c7450c;
+	border-bottom: none;
+	border-radius: 10px 10px 0 0;
+}
+.music_expert_score_back {
+	position: relative;
+	background: url(../img/back_music_expert.png) no-repeat 0 5px, #ff828e;
+	border: 2px solid #c02138;
+	box-shadow: 1px 3px 0px #c02138;
+	border-radius: 5px;
+}
+.music_expert_btn_on {
+	background: #ff828e;
+	border: 2px solid #c02138;
+	border-bottom: none;
+	border-radius: 10px 10px 0 0;
+}
+.music_expert_btn_off {
+	background: #c02138;
+	border: 2px solid #c02138;
+	border-bottom: none;
+	border-radius: 10px 10px 0 0;
+}
+.music_master_score_back {
+	position: relative;
+	background: url(../img/back_music_master.png) no-repeat 0 5px, #c27ff4;
+	border: 2px solid #67148d;
+	box-shadow: 1px 3px 0px #67148d;
+	border-radius: 5px;
+}
+.music_master_btn_on {
+	background: #c27ff4;
+	border: 2px solid #67148d;
+	border-bottom: none;
+	border-radius: 10px 10px 0 0;
+}
+.music_master_btn_off {
+	background: #67148d;
+	border: 2px solid #67148d;
+	border-bottom: none;
+	border-radius: 10px 10px 0 0;
+}
+.music_remaster_score_back {
+	position: relative;
+	background: url(../img/back_music_remaster.png) no-repeat 0 5px, #e5ddea;
+	border: 2px solid #8c2cd5;
+	box-shadow: 1px 3px 0px #8c2cd5;
+	border-radius: 5px;
+}
+.music_remaster_btn_on {
+	background: #e5ddea;
+	border: 2px solid #8c2cd5;
+	border-bottom: none;
+	border-radius: 10px 10px 0 0;
+}
+.music_remaster_btn_off {
+	background: #8c2cd5;
+	border: 2px solid #8c2cd5;
+	border-bottom: none;
+	border-radius: 10px 10px 0 0;
+}
+.music_utage_score_back {
+	position: relative;
+	background: url(../img/back_music_utage.png) no-repeat 0 5px, #ff6ffd;
+	border: 2px solid #d00bb1;
+	box-shadow: 1px 3px 0px #d00bb1;
+	border-radius: 5px;
+}
+.music_remaster_btn_on {
+	background: #d861be;
+	border: 2px solid #d52cb0;
+	border-bottom: none;
+	border-radius: 10px 10px 0 0;
+}
+.music_utage_btn_off {
+	background: #eb80da;
+	border: 2px solid #c711ab;
+	border-bottom: none;
+	border-radius: 10px 10px 0 0;
+}
+.music_all_score_back {
+	position: relative;
+	background: url(../img/back_music_all.png) no-repeat 0 5px, #fff;
+	border: 2px solid #000;
+	box-shadow: 1px 3px 0px #023e52;
+	border-radius: 5px;
+}
+.music_basic_btn {
+	position: relative;
+	background: radial-gradient(#6fe163 50%, #51ce44);
+	text-shadow: #22bb5b 1px 1px 0, #22bb5b -1px -1px 0,/*右下、左上*/ #22bb5b -1px 1px 0, #22bb5b 1px -1px 0,/*右上、左下*/ #22bb5b 0px 1px 0, #22bb5b 0-1px 0,/*右、左*/ #22bb5b -1px 0 0, #22bb5b 1px 0 0;
+	border: 2px solid #000;
+	box-shadow: 1px 3px 0px #025235;
+	border-radius: 5px;
+}
+.music_advanced_btn {
+	position: relative;
+	background: radial-gradient(#ffd653 50%, #fab41b);
+	text-shadow: #fb9c2d 1px 1px 0, #fb9c2d -1px -1px 0,/*右下、左上*/ #fb9c2d -1px 1px 0, #fb9c2d 1px -1px 0,/*右上、左下*/ #fb9c2d 0px 1px 0, #fb9c2d 0-1px 0,/*右、左*/ #fb9c2d -1px 0 0, #fb9c2d 1px 0 0;
+	border: 2px solid #c7450c;
+	box-shadow: 1px 3px 0px #c7450c;
+	border-radius: 5px;
+}
+.music_expert_btn {
+	position: relative;
+	background: radial-gradient(#ff828e 50%, #f55a70);
+	text-shadow: #f64861 1px 1px 0, #f64861 -1px -1px 0,/*右下、左上*/ #f64861 -1px 1px 0, #f64861 1px -1px 0,/*右上、左下*/ #f64861 0px 1px 0, #f64861 0-1px 0,/*右、左*/ #f64861 -1px 0 0, #f64861 1px 0 0;
+	border: 2px solid #c02138;
+	box-shadow: 1px 3px 0px #c02138;
+	border-radius: 5px;
+}
+.music_master_btn {
+	position: relative;
+	background: radial-gradient(#c27ff4 50%, #a85ce0);
+	text-shadow: #9e45e2 1px 1px 0, #9e45e2 -1px -1px 0,/*右下、左上*/ #9e45e2 -1px 1px 0, #9e45e2 1px -1px 0,/*右上、左下*/ #9e45e2 0px 1px 0, #9e45e2 0-1px 0,/*右、左*/ #9e45e2 -1px 0 0, #9e45e2 1px 0 0;
+	border: 2px solid #67148d;
+	box-shadow: 1px 3px 0px #67148d;
+	border-radius: 5px;
+}
+.music_remaster_btn {
+	position: relative;
+	background: radial-gradient(#e5ddea 50%, #dccce6);
+	text-shadow: #9e45e2 1px 1px 0, #9e45e2 -1px -1px 0,/*右下、左上*/ #9e45e2 -1px 1px 0, #9e45e2 1px -1px 0,/*右上、左下*/ #9e45e2 0px 1px 0, #9e45e2 0-1px 0,/*右、左*/ #9e45e2 -1px 0 0, #9e45e2 1px 0 0;
+	border: 2px solid #8c2cd5;
+	box-shadow: 1px 3px 0px #8c2cd5;
+	border-radius: 5px;
+}
+.music_utage_btn {
+	position: relative;
+	background: radial-gradient(#eb80da 33%, #c711ab);
+	text-shadow: #ff6ffd 1px 1px 0, #ff6ffd -1px -1px 0,/*右下、左上*/ #ff6ffd -1px 1px 0, #ff6ffd 1px -1px 0,/*右上、左下*/ #ff6ffd 0px 1px 0, #ff6ffd 0-1px 0,/*右、左*/ #ff6ffd -1px 0 0, #ff6ffd 1px 0 0;
+	border: 2px solid #d00bb1;
+	box-shadow: 1px 3px 0px #d00bb1;
+	border-radius: 5px;
+}
+.music_detail_table {
+	border-collapse: collapse;
+	border: 1px solid #dedede;
+}
+.music_detail_table tr {
+	border-bottom: 1px dashed #dedede;
+}
+.music_detail_table td:nth-child(1) {
+	width: 43px;
+	border-collapse: collapse;
+}
+.music_detail_table td:nth-child(2) {
+}
+.music_detail_table td:nth-child(3) {
+	width: 90px;
+	padding: 0 5px 0 0;
+}
+.music_detail_table td:nth-child(4) {
+	width: 100px;
+}
+/* ---------- ちほー ---------- */
+.map_img_block {
+	background: url(../img/back_map.png) bottom no-repeat;
+	background-size: 175px 130px;
+}
+.map_img_adj {
+	position: absolute;
+	left: 0;
+	top: 54px;
+}
+.map_comp_img {
+	position: absolute;
+	bottom: -8px;
+	left: 0;
+	right: 0;
+	width: 150px;
+	margin: 0 auto;
+}
+.map_name_block {
+	width: 280px;
+	height: 36px;
+	line-height: 38px;
+	background: url(../img/info_base_02.png) bottom no-repeat;
+	background-size: 280px;
+	overflow: hidden;
+}
+.map_name_block_inner {
+	margin: 0 25px;
+	line-height: 38px;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.map_name_block_s {
+	width: 250px;
+	height: 32px;
+	line-height: 37px;
+	background: url(../img/info_base_02.png) bottom no-repeat;
+	background-size: 250px;
+}
+.map_name_block_s_inner {
+	margin: 0 24px;
+	line-height: 37px;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.mapl_total_img {
+	position: absolute;
+	bottom: 27px;
+	left: 0;
+	right: 0;
+	width: 245px;
+	margin: 0 auto;
+}
+.map_total_img_dx {
+	position: absolute;
+	bottom: 37px;
+	left: 0;
+	right: 0;
+	width: 352px;
+	margin: 0 auto;
+}
+.eventmap_container {
+	margin: 10px 0 15px 0;
+	padding: 0 10px;
+	background: url(../img/back_eventmap.png) top 140px left -3px no-repeat;
+	background-size: 205px;
+}
+.mapdetail_name_block {
+	width: 360px;
+	height: 40px;
+	margin: 15px auto 0 auto;
+	line-height: 38px;
+	background: url(../img/info_base_02.png) bottom no-repeat;
+	background-size: 360px;
+}
+.mapdetail_name_block_inner {
+	margin: 0 33px;
+	line-height: 38px;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.mapdetail_map_block {
+	position: relative;
+	min-height: 391px;
+	background: url(../img/back_mapdetail.png) bottom no-repeat;
+}
+.mapdetail_map_img {
+	position: absolute;
+	top: 44px;
+	left: 0;
+	right: 0;
+	height: 258px;
+	margin: 0 auto;
+}
+.mapdetail_map_img_dx {
+	position: absolute;
+	top: 5px;
+	left: 0;
+	right: 0;
+	height: 302px;
+	margin: 0 auto;
+}
+.mapdetail_map_img_adj {
+	position: absolute;
+	top: 122px;
+	left: 0;
+	right: 0;
+	width: 258px;
+	margin: 0 auto;
+}
+.mapdetail_img_block {
+	background: url(../img/back_map.png) bottom no-repeat;
+	background-size: 254px 130px;
+}
+.mapdetail_total_img {
+	position: absolute;
+	bottom: 27px;
+	left: 0;
+	right: 0;
+	width: 245px;
+	margin: 0 auto;
+}
+.mapdetail_total_img_dx {
+	position: absolute;
+	bottom: 37px;
+	left: 0;
+	right: 0;
+	width: 352px;
+	margin: 0 auto;
+}
+.mapdetail_total {
+	position: absolute;
+	bottom: 49px;
+	left: 0;
+	right: 0;
+	width: 200px;
+	margin: 0 auto;
+}
+.mapdetail_total_dx {
+	position: absolute;
+	bottom: 49px;
+	left: 0;
+	right: 0;
+	width: 240px;
+	margin: 0 auto;
+}
+.mapdetail_taskmusic_icon {
+	position: absolute;
+	top: -6px;
+	left: 40px;
+	height: 20px;
+}
+.mapdetail_perfectchallenge_icon {
+	position: absolute;
+	top: -5px;
+	left: 34px;
+	height: 25px;
+}
+.mapdetail_bonus_icon {
+	position: absolute;
+	bottom: -1px;
+	right: 0;
+	width: 43px;
+}
+.mapdetail_bonus_nameplate_block, .mapdetail_bonus_frame_block, .mapdetail_bonus_icon_block, .mapdetail_bonus_trophy_block {
+	height: 80px;
+	overflow: hidden;
+}
+.mapdetail_bonus_nameplate_block img {
+	position: absolute;
+	right: 0;
+	top: 27px;
+	width: 160px;
+}
+.mapdetail_bonus_frame_block img {
+	position: absolute;
+	right: 0;
+	top: 24px;
+	width: 80px;
+}
+.mapdetail_bonus_icon_block img {
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 80px;
+}
+.mapdetail_bonus_trophy_block img {
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 80px;
+}
+.mapdetail_load_block {
+	padding: 0 0 5px 0;
+	background: url(../img/back_map_load.png) bottom repeat-x;
+	background-size: 10px;
+}
+.mapdetail_walk_start {
+	position: absolute;
+	left: -20px;
+	bottom: 6px;
+	width: 48px;
+}
+.mapdetail_walk_center {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 6px;
+	width: 48px;
+	margin: 0 auto;
+}
+.mapdetail_walk_goal {
+	position: absolute;
+	right: 50px;
+	bottom: 6px;
+	width: 48px;
+}
+.eventmapdetail_img_block {
+	height: 350px;
+	background: url(../img/back_eventmap.png) bottom no-repeat;
+	background-size: 254px 130px;
+}
+.season_itemkind_block {
+	display: block;
+	font-weight: bold;
+	border-bottom: 1px #000 solid;
+	padding-bottom: 5px;
+	margin: 0 auto 10px auto;
+	text-align: center;
+}
+.season_point_reward_get_icon {
+	position: absolute;
+	top: 9px;
+	right: 9px;
+	height: 24px;
+}
+/* ---------- コレクション ---------- */
+.collection_setting_block {
+	border: 2px solid #ffa200;
+}
+.collection_setting_img {
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	width: 50px;
+	-webkit-transform: rotate(-10deg);
+	-ms-transform: rotate(-10deg);
+	transform: rotate(-10deg);
+}
+.collection_lock_img {
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	width: 25px;
+}
+.collection_glitter_img {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 64px;
+}
+.btn_type_dx {
+	position: absolute;
+	top: -47px;
+	left: 45px;
+	width: 175px;
+	height: 45px;
+	border: 3px solid #fff;
+	border-bottom: none;
+	box-shadow: -2px -2px 2px rgba(0, 0, 0, 0.2), 2px -2px 2px rgba(0, 0, 0, 0.2);
+	border-radius: 5px 5px 0 0;
+	overflow: hidden;
+}
+.btn_type_dx img {
+	width: 175px;
+}
+.btn_type_maimai {
+	position: absolute;
+	top: -47px;
+	left: 260px;
+	width: 175px;
+	height: 45px;
+	border: 3px solid #fff;
+	border-bottom: none;
+	box-shadow: -2px -2px 2px rgba(0, 0, 0, 0.2), 2px -2px 2px rgba(0, 0, 0, 0.2);
+	border-radius: 5px 5px 0 0;
+	overflow: hidden;
+}
+.btn_type_maimai img {
+	width: 175px;
+}
+.collection_trophy_block {
+	width: 268px;
+	height: 25px;
+	margin: 0 auto 5px auto;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.btn_Normal {
+	position: absolute;
+	top: -33px;
+	left: 5px;
+	width: 90px;
+	height: 31px;
+	border: 3px solid #fff;
+	border-bottom: none;
+	box-shadow: -2px -2px 2px rgba(0, 0, 0, 0.2), 2px -2px 2px rgba(0, 0, 0, 0.2);
+	border-radius: 5px 5px 0 0;
+	overflow: hidden;
+}
+.btn_Normal img {
+	width: 84px;
+}
+.btn_Bronze {
+	position: absolute;
+	top: -33px;
+	left: 100px;
+	width: 90px;
+	height: 31px;
+	border: 3px solid #fff;
+	border-bottom: none;
+	box-shadow: -2px -2px 2px rgba(0, 0, 0, 0.2), 2px -2px 2px rgba(0, 0, 0, 0.2);
+	border-radius: 5px 5px 0 0;
+	overflow: hidden;
+}
+.btn_Bronze img {
+	width: 84px;
+}
+.btn_Silver {
+	position: absolute;
+	top: -33px;
+	left: 195px;
+	width: 90px;
+	height: 31px;
+	border: 3px solid #fff;
+	border-bottom: none;
+	box-shadow: -2px -2px 2px rgba(0, 0, 0, 0.2), 2px -2px 2px rgba(0, 0, 0, 0.2);
+	border-radius: 5px 5px 0 0;
+	overflow: hidden;
+}
+.btn_Silver img {
+	width: 84px;
+}
+.btn_Gold {
+	position: absolute;
+	top: -33px;
+	left: 290px;
+	width: 90px;
+	height: 31px;
+	border: 3px solid #fff;
+	border-bottom: none;
+	box-shadow: -2px -2px 2px rgba(0, 0, 0, 0.2), 2px -2px 2px rgba(0, 0, 0, 0.2);
+	border-radius: 5px 5px 0 0;
+	overflow: hidden;
+}
+.btn_Gold img {
+	width: 84px;
+}
+.btn_Rainbow {
+	position: absolute;
+	top: -33px;
+	left: 385px;
+	width: 90px;
+	height: 31px;
+	border: 3px solid #fff;
+	border-bottom: none;
+	box-shadow: -2px -2px 2px rgba(0, 0, 0, 0.2), 2px -2px 2px rgba(0, 0, 0, 0.2);
+	border-radius: 5px 5px 0 0;
+	overflow: hidden;
+}
+.btn_Rainbow img {
+	width: 84px;
+}
+.collection_chara_img_block {
+	position: relative;
+	width: 86px;
+	min-height: 100px;
+}
+.collection_chara_inner {
+	position: absolute;
+	top: 15px;
+	left: 40px;
+	transform: scale(0.52);
+}
+.chara_cycle_trim {
+	position: absolute;
+	top: -12px;
+	left: -71px;
+	width: 144px;
+	height: 145px;
+	border: 5px solid #fff;
+	background: #83dbf8;
+	border-radius: 100px;
+	overflow: hidden;
+}
+.chara_cycle_img {
+	position: absolute;
+	top: -30px;
+	left: -61px;
+	width: 256px;
+	height: 256px;
+}
+.collection_chara_frame {
+	position: absolute;
+	top: 8px;
+	left: 2px;
+	width: 77px;
+}
+.collection_chara_star_block {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 48px;
+	background: rgba(255, 255, 255, 0.96);
+	border-radius: 10px;
+	color: black;
+}
+.collection_chara_star_block img {
+	width: 19px;
+}
+.collection_chara_lv_block {
+	position: absolute;
+	top: 76px;
+	left: 5px;
+	width: 70px;
+	box-shadow: 1px 3px 0px rgba(0, 0, 0, 0.4);
+	background: #4bbbf5;
+	border-radius: 10px;
+	color: white;
+}
+.collection_chara_leader {
+	position: absolute;
+	top: -16px;
+	left: 16px;
+	width: 48px;
+	z-index: 2;
+}
+.btn_map {
+	position: absolute;
+	top: -43px;
+	left: 45px;
+	width: 175px;
+	border: 3px solid #fff;
+	border-bottom: none;
+	box-shadow: -2px -2px 2px rgba(0, 0, 0, 0.2), 2px -2px 2px rgba(0, 0, 0, 0.2);
+	border-radius: 5px 5px 0 0;
+}
+.btn_eventmap {
+	position: absolute;
+	top: -43px;
+	left: 260px;
+	width: 175px;
+	border: 3px solid #fff;
+	border-bottom: none;
+	box-shadow: -2px -2px 2px rgba(0, 0, 0, 0.2), 2px -2px 2px rgba(0, 0, 0, 0.2);
+	border-radius: 5px 5px 0 0;
+}
+.btn_map_on, .btn_eventmap_on {
+	top: -58px;
+}
+.collection_chara_lock_img {
+	position: absolute;
+	top: 0;
+	right: 10px;
+	width: 19px;
+}
+.collection_chara_block {
+	min-height: 38px;
+}
+.collection_chara_selected {
+	animation: blinkCharaSelected 1s infinite alternate;
+	border-radius: 10px
+}
+@keyframes blinkCharaSelected {
+	0% {
+		color: #ffa500;
+		background: #fffaf2;
+	}
+	100%
+	{
+		color: #fffaf2;
+		background: #ffa500;
+	}
+}
+/* ---------- ランキング ---------- */
+.ranking_title_block {
+	width: 450px;
+	margin: 5px 15px 0 15px;
+	padding: 5px;
+	background: url(../img/ranking/back_rank_top.png) right bottom no-repeat;
+}
+.ranking_top_block {
+	margin: 0 15px 5px 15px;
+	padding: 4px;
+	background: -webkit-linear-gradient(-60deg, #3fc5fb, #3fc5fb 41%, #a8ef3e 41%, #a8ef3e 47%, #ffe839 47%, #ffe839 53%, #ffa034 53%, #ffa034 59%, #ff6d51 59%, #ff6d51 100%);
+	background: linear-gradient(-30deg, #ff6d51, #ff6d51 41%, #ffa034 41%, #ffa034 47%, #ffe839 47%, #ffe839 53%, #a8ef3e 53%, #a8ef3e 59%, #3fc6fc 59%, #3fc5fb 100%);
+	box-shadow: 1px 3px 0px rgba(0, 0, 0, 0.4);
+	border-radius: 5px;
+	height: auto;
+}
+.ranking_block {
+	margin: 5px 15px;
+	padding: 4px;
+	background: rgba(255, 255, 255, 0.6);
+	box-shadow: 1px 3px 0px rgba(0, 0, 0, 0.4);
+	border-radius: 5px;
+}
+.ranking_top_inner_block {
+	background: url(../img/ranking/back.png), #f5f8fb;
+	border: 2px solid #fff;
+	border-radius: 5px;
+}
+.ranking_inner_block {
+	background: #eff5fb;
+	border: 2px solid #fff;
+	border-radius: 5px;
+}
+.ranking_you {
+	background: url(../img/ranking/back.png), linear-gradient(150deg, rgba(248, 227, 183, 1) 13%, rgba(211, 243, 165, 1) 51%, rgba(186, 248, 242, 1) 88%);
+}
+.ranking_rank_block {
+	width: 70px;
+	height: 36px;
+}
+.ranking_music_date {
+	position: absolute;
+	top: -2px;
+	right: -2px;
+	width: 116px;
+	background: #26b3fc;
+	border-radius: 10px;
+	line-height: 11px;
+	font-size: 10px;
+	color: #fff;
+}
+.ranking_music_date_1day {
+	position: absolute;
+	top: -2px;
+	right: -2px;
+	width: 116px;
+	background: #ff2900;
+	border-radius: 10px;
+	line-height: 11px;
+	font-size: 10px;
+	color: #fff;
+}
+.ranking_music_date_7day {
+	position: absolute;
+	top: -2px;
+	right: -2px;
+	width: 116px;
+	background: #ffb200;
+	border-radius: 10px;
+	line-height: 11px;
+	font-size: 10px;
+	color: #fff;
+}
+.ranking_class_img {
+	position: absolute;
+	right: 80px;
+}
+.ranking_theory_count {
+	position: absolute;
+	top: 23px;
+	right: 130px;
+	width: 40px;
+	font-size: 14px;
+	color: #fff;
+}
+.ranking_2p_block {
+	height: 60px;
+}
+.ranking_2p_rank {
+	text-align:center;
+	height: 36px;
+}.ranking_2p_rank_num {
+	padding-top: 7px;
+	text-align:right;
+	width: 86px;
+}.ranking_2p_rank_num_img {
+	height: 30px;
+}.ranking_2p_name {
+	padding-top: 8px;
+	font-size: 15px;
+	width: 100%;
+}
+.ranking_2p_name_left {
+	height: 20px;
+}
+.ranking_2p_name_right {
+	height: 20px;
+}
+.ranking_2p_name_center {
+	height: 20px;
+	width: 4%;
+}
+.ranking_2p_score {
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.ranking_2p_score_num {
+	margin-top: 2px;
+}
+.ranking_2p_theory {
+	left: 29%;
+	top: 56%;
+}
+.ranking_2p_theory_count {
+	left: 33%;
+	top: 77%;
+	font-size: 14px;
+	color: #fff;
+}
+.ranking_2p_dxstar {
+	left: 40%;
+	top: 64%;
+}
