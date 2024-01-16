@@ -46,7 +46,7 @@
 		<div class="p_l_10 f_l">
 			<div class="trophy_block trophy_Normal p_3 t_c f_0">
 				<div class="trophy_inner_block f_13">
-					<div id="localStorage.pagecount">该设备已访问此页 79 次。</div>
+					<div id="localStorage.pagecount">该设备已访问此页 -- 次。</div>
 				</div>
 			</div>
 			<div class="m_b_5">
@@ -78,7 +78,7 @@
 		<button onclick="postData()">
 			<img src="./index_files/logout.png" alt="提交" class="w_120 m_15 m_t_5">
 		</button>
-		<button onclick="postData()">
+		<button onclick="scanQR()">
 			<img src="./index_files/camara.png" alt="扫码">
 		</button>
 </div>
@@ -92,8 +92,9 @@
 	
 	
 	
-	<script src="./index_files/qrcode.min.js.下载"></script>
-	<script>
+<script src="./index_files/qrcode.min.js"></script>
+
+<script>
 	var video = document.createElement("video");
 	var canvasElement = document.createElement("canvas");
 	var canvas = canvasElement.getContext("2d");
@@ -131,7 +132,7 @@
 	function postData() {
     var inputVal = document.getElementById("myInput").value;
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://127.0.0.1:8888/logout", true);
+    xhr.open("POST", "http://api.gzx7301.top/logout", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function() {
         if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
