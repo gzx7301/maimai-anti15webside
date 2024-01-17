@@ -68,7 +68,7 @@
 		<div class="clearfix"></div>
 	</div>
 	<img loading="lazy" src="./index_files/bab779e7ab508427.png" class="w_120 m_t_10 f_r">
-		<input type="text" minlength="2" id="myInput" placeholder="扫描或输入SGWCMAID..." required="" class="comment_block break f_l f_12">	
+		<input type="text" minlength="2" id="myInput" placeholder="扫描或输入SGWCMAID..." required!=null class="comment_block break f_l f_12">	
 		<div id="unlock.result" class="name_block f_l f_16"> </div>
 	<div class="clearfix"></div>
 
@@ -125,11 +125,17 @@
 	}
 	
 	function postData() {
+  		var x = document.getElementById("myInput").value;
+  		if (x == null || x == "") {
+   		 alert("需要输入SGWCMAID。");
+   		 return false;
+  		}
 		if (!isClicked) {
     		isClicked = true;
 			var inputVal = document.getElementById("myInput").value;
    			var xhr = new XMLHttpRequest();
    			xhr.open("POST", "https://api.gzx7301.top/logout", true);
+			//xhr.open("POST", "http://localhost:8888/logout", true);
    			xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     		xhr.onreadystatechange = function() {
       		if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
