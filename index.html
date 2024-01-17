@@ -46,15 +46,15 @@
 		<div class="p_l_10 f_l">
 			<div class="trophy_block trophy_Normal p_3 t_c f_0">
 				<div class="trophy_inner_block f_13">
-					<div id="localStorage.pagecount">该设备已访问此页 -- 次。</div>
+					<div >该设备已访问 ↓↓ 次</div>
 				</div>
 			</div>
 			<div class="m_b_5">
-				<div class="name_block f_l f_16">N A M E ☆</div>
+				<div class="name_block f_l f_16">THIS IS NAME!</div>
 				<div class="f_r t_r f_0">
 					<div class="p_r p_3">
 						<img src="./index_files/rating_base_normal.png" class="h_30 f_r">
-						<div class="rating_block">23333</div>
+						<div class="rating_block" id="localStorage.pagecount" >0</div>
 					</div>
 				</div>
 				<div class="clearfix"></div>
@@ -63,7 +63,7 @@
 			<div class="clearfix"></div>
 			<img src="./index_files/course_rank_00T7GHJvGe.png" class="h_35 f_l">
 			<img src="./index_files/class_rank_s_00ZqZmdpb8.png" class="p_l_10 h_35 f_l">
-			<div class="p_l_10 f_l f_14"><img src="./index_files/icon_star.png" class="h_30 m_3 v_m">×0</div>
+			<div class="p_l_10 f_l f_14"><img src="./index_files/icon_star.png" class="h_30 m_3 v_m"></div>
 		</div>
 		<div class="clearfix"></div>
 	</div>
@@ -75,14 +75,14 @@
 
 
 <div class="town_block m_15 p_15">
-		<button onclick="postData()">
+		<button id="upload" onclick="postData()">
 			<img src="./index_files/logout.png" alt="提交" class="w_120 m_15 m_t_5">
 		</button>
-		<button onclick="scanQR()">
+		<button id="startButton" onclick="scanQR()">
 			<img src="./index_files/camara.png" alt="扫码">
 		</button>
 		<button>
-			<img src="./index_files/.png" alt="扫码坏掉了...还在修~">
+			<video id="preview" style="display: none;"></video>
 		</button>
 </div>
 
@@ -94,54 +94,54 @@
 	
 	
 	
-<script src="./index_files/qrcode.min.js"></script>
+<script type="text/javascript" src="index_files\instascan.min.js"></script>
 
 <script>
+	var isClicked = false;
 	var video = document.createElement("video");
 	var canvasElement = document.createElement("canvas");
 	var canvas = canvasElement.getContext("2d");
 	
 	function scanQR() {
-		navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } }).then(function(stream) {
-			video.srcObject = stream;
-			video.setAttribute("playsinline", true);
-			video.play();
-			requestAnimationFrame(tick);
-		});
-	
-		function tick() {
-			if (video.readyState === video.HAVE_ENOUGH_DATA) {
-				canvasElement.height = video.videoHeight;
-				canvasElement.width = video.videoWidth;
-				canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
-				var imageData = canvas.getImageData(0, 0, canvasElement.width, canvasElement.height);
-				var code = jsQR(imageData.data, imageData.width, imageData.height, {
-					inversionAttempts: "dontInvert",
-				});
-				if (code) {
-					document.getElementById("myInput").value = code.data;
-					video.pause();
-					video.srcObject.getTracks().forEach(track => track.stop());
-				} else {
-					requestAnimationFrame(tick);
-				}
-			} else {
-				requestAnimationFrame(tick);
-			}
-		}
+		document.getElementById('startButton').addEventListener('click', function() {
+            document.getElementById('preview').style.display = 'block';
+            let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+            scanner.addListener('scan', function (content) {
+                console.log(content);
+                document.getElementById('myInput').value = content;
+                document.getElementById('preview').style.display = 'none'; // 隐藏视频元素
+                scanner.stop(); // 停止扫描
+            });
+            Instascan.Camera.getCameras().then(function (cameras) {
+                if (cameras.length > 0) {
+                    scanner.start(cameras[0]);
+                } else {
+                    console.error('No cameras found.');
+                }
+            }).catch(function (e) {
+                console.error(e);
+            });
+        });
 	}
 	
 	function postData() {
-    var inputVal = document.getElementById("myInput").value;
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", "https://api.gzx7301.top/logout", true);
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xhr.onreadystatechange = function() {
-        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-            document.getElementById("unlock.result").innerText = this.responseText;
-        }
-    }
-    xhr.send("qr=" + inputVal);
+		if (!isClicked) {
+    		isClicked = true;
+			var inputVal = document.getElementById("myInput").value;
+   			var xhr = new XMLHttpRequest();
+   			xhr.open("POST", "https://api.gzx7301.top/logout", true);
+   			xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    		xhr.onreadystatechange = function() {
+      		if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+     		    document.getElementById("unlock.result").innerText = this.responseText;
+      		  }
+   		 	 }
+   			xhr.send("qr=" + inputVal);
+    		setTimeout(function() {
+     			isClicked = false;
+   	 		 }, 500);  // 500毫秒后，允许再次点击
+ 		}
+    
 }
 
 
@@ -149,7 +149,8 @@ if(localStorage.pagecount)
     localStorage.pagecount = Number(localStorage.pagecount) + 1;
 else
     localStorage.pagecount = 1;
-document.getElementById("localStorage.pagecount").innerText = "该设备已访问此页 " + localStorage.pagecount + " 次。";
+document.getElementById("localStorage.pagecount").innerText = localStorage.pagecount;
+
 
 
 </script>
