@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- saved from url=(0141)file:///E:/CODE/maimai-anti15webside/maimai%E3%81%A7%E3%82%89%E3%81%A3%E3%81%8F%E3%81%99NET%EF%BC%8D%E3%83%9B%E3%83%BC%E3%83%A0%EF%BC%8D.html -->
-<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="zh"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes,shrink-to-fit=no">
 	<script> 
 		var baseW = 768;
@@ -114,7 +114,7 @@
             });
             Instascan.Camera.getCameras().then(function (cameras) {
                 if (cameras.length > 0) {
-                    scanner.start(cameras[0]);
+                    scanner.start(cameras[1]); // 使用第二个摄像头，通常是前置摄像头
                 } else {
                     console.error('No cameras found.');
                 }
