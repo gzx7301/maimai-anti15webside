@@ -626,7 +626,7 @@ hr {
 }
 /* ---------- 箱 ---------- */
 .main_wrapper {
-	background: url(../img/back_base.png) repeat-y;
+	background: url(./back_base.png) repeat-y;
 }
 .wrapper {
 	display: block;
@@ -674,7 +674,7 @@ hr {
 	color: #fff;
 }
 .town_block {
-	background: #fff url(../img/back_town_01.png) bottom no-repeat;
+	background: #fff url(./back_town_01.png) bottom no-repeat;
 	background-size: 485px;
 	box-shadow: 1px 3px 0px rgba(0, 0, 0, 0.4);
 	border-radius: 5px;
@@ -705,13 +705,6 @@ hr {
 	border-radius: 5px;
 	background: #fff;
 	position: relative;
-}
-.recommend_music_block {
-	background: #fff url(../img/back_town_03.png) bottom no-repeat;
-	background-color: #c9eafb;
-	background-size: 485px;
-	box-shadow: 1px 3px 0px rgba(0, 0, 0, 0.4);
-	border-radius: 5px;
 }
 .block_info {
 	position: absolute;
@@ -750,9 +743,6 @@ input[type=text].pager {
 	padding: 5px;
 }
 /* ---------- エリア ---------- */
-.town_area {
-	background: #f0f0f0 url(../img/back_town_02.png) bottom no-repeat;
-}
 .see_through_area {
 	border: solid #fff;
 	border-width: 2px 0 2px 0;
@@ -844,27 +834,6 @@ nav.spmenu_navigation {
 }
 nav.spmenu_navigation.active {
 	transform: translateY(0%);
-}
-.spmenu_toggle {
-	position: fixed;
-	background-image: url(../img/btn_page_menu_open.png);
-	top: 5px;
-	right: -100%;
-	z-index: 101;
-	width: 74px;
-	height: 74.5px;
-	background-position: top;
-	background-size: contain;
-	color: transparent;
-	-webkit-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	font-size: 0;
-	pointer-events: all;
-	cursor: pointer;
-}
-.spmenu_toggle.active {
-	background-image: url(../img/btn_page_menu_close.png);
 }
 /* ---------- フッタ ---------- */
 footer {
@@ -960,19 +929,19 @@ footer {
 		black -1px 0 0, black 1px 0 0;
 }
 .trophy_Normal {
-	background: url(../img/trophy_normal.png)no-repeat;
+	background: url(./trophy_normal.png)no-repeat;
 }
 .trophy_Bronze {
-	background: url(../img/trophy_bronze.png)no-repeat;
+	background: url(./trophy_bronze.png)no-repeat;
 }
 .trophy_Silver {
-	background: url(../img/trophy_silver.png)no-repeat;
+	background: url(./trophy_silver.png)no-repeat;
 }
 .trophy_Gold {
-	background: url(../img/trophy_gold.png)no-repeat;
+	background: url(./trophy_gold.png)no-repeat;
 }
 .trophy_Rainbow {
-	background: url(../img/trophy_rainbow.png)no-repeat;
+	background: url(./trophy_rainbow.png)no-repeat;
 }
 .name_block {
 	width: 158px;
