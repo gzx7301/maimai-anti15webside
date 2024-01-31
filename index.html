@@ -139,7 +139,8 @@
             });
             Instascan.Camera.getCameras().then(function (cameras) {
                 if (cameras.length > 0) {
-                    scanner.start(cameras[1]); // 使用第二个摄像头，通常是前置摄像头
+					camaraid = cameras.length
+                    scanner.start(cameras[int(camaraid)]); // 使用第二个摄像头，通常是前置摄像头
                 } else {
                     console.error('No cameras found.');
                 }
