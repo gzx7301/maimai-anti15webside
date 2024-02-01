@@ -31,7 +31,7 @@
 	</script>
 
 
-	<title>maimaiでらっくす</title>
+	<title>maimaiでらっくす-TOOLS</title>
 	<link rel="stylesheet" href="./index_files/common.css">
 	</head><body><div class="wrapper t_c">
 					<div class="spmenu_toggle"></div>
@@ -62,7 +62,7 @@
 				</div>
 			</div>
 			<div class="m_b_5">
-				<div class="name_block f_l f_16">THIS IS NAME!</div>
+				<div class="name_block f_l f_16" id="username"> </div>
 				<div class="f_r t_r f_0">
 					<div class="p_r p_3">
 						<img src="./img/rating_base_normal.png" class="h_30 f_r">
@@ -153,7 +153,7 @@
 	function postData() {
   		var x = document.getElementById("myInput").value;
   		if (x == null || x == "") {
-   		 alert("需要输入SGWCMAID。");
+   		 alert("需要输入SGWCMAID");
    		 return false;
   		}
 		if (!isClicked) {
@@ -182,6 +182,16 @@ if(localStorage.pagecount)
 else
     localStorage.pagecount = 1;
 document.getElementById("localStorage.pagecount").innerText = localStorage.pagecount;
+
+// 获取 localStorage 中的 UID 和用户名
+var uid = localStorage.getItem('UID');
+var username = localStorage.getItem('Username');
+
+// 在页面上显示 UID 和用户名
+if (uid && username) {
+    document.getElementById('uid').textContent = uid;
+    document.getElementById('username').textContent = username;
+}
 
 
 
