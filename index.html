@@ -194,6 +194,21 @@ if (uid && username) {
 }
 
 
+// 从LocalStorage中获取uid
+var uid = localStorage.getItem('uid');
+
+// 获取输入框元素
+var inputElement = document.getElementById('myInput');
+
+// 检查uid是否存在
+if (uid) {
+    // 如果uid存在，隐藏输入框
+    inputElement.style.display = 'none';
+} else {
+    // 如果uid不存在，显示输入框
+    inputElement.style.display = 'block';
+}
+
 
 </script>
 

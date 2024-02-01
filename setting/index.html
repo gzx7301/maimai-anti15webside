@@ -102,23 +102,6 @@
 
 
 <script>
-	var savedUserId = localStorage.getItem(userId);
-	if (savedUserId) {
-   		userIdInput.value = savedUserId;
-	} else {
-		alert("未找到保存的用户ID,(UID NOT FIND IN LOCAL,SAVE DEFAULT ID -1)");
-		localStorage.setItem('userId', '-1');
-	}
-
-	document.getElementById('settingsForm').addEventListener('submit_user', function(event) {
-    event.preventDefault(); // 阻止表单默认提交行为
-	
-    var username = document.getElementById('username').value;
-
-    localStorage.setItem('username', username);
-
-});
-
 document.getElementById('settingsForm').addEventListener('submit_uid', function(event) {
     event.preventDefault(); // 阻止表单默认提交行为
 	
