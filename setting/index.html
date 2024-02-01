@@ -42,7 +42,15 @@
 	<div class="wrapper main_wrapper t_c">
 		<header class="f_0">
 				<div class="f_0">
-
+					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 480 10" preserveAspectRatio="none" style="height:10px">
+						<path d="M0,10 v-5 q5,5 10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 v5 Z" fill="#7ed3ff"></path>
+					</svg>
+					<div class="menu">
+						<a href="https://anti15.gzx7301.top" class="d_ib col4 p_4"><img src="./index_files/menu_home_on.png" class="w_112"></a>
+					</div>
+					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 480 10" preserveAspectRatio="none" style="height:10px">
+						<path d="M0,0 v5 q5,5 10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 v-5 Z" fill="#7ed3ff"></path>
+					</svg>
 </div>
 		</header>
 
@@ -57,25 +65,11 @@
 					<input type="text" id="username" name="username" placeholder="USER NAME">
 				</td>
 				<td class="t_r f_0">
-					<button type="submit_user">
+					<button type="submit">
 						<img src="./index_files/btn_change.png" class="h_40">
 					</button>
 						
 					</a>
-				</td>
-			</tr>
-			<tr>
-				<td colspan="2"><img src="./index_files/line_01.png" class="w_430"></td>
-			</tr>
-			<tr>
-				<td>
-					<label for="userId">用户ID:</label>
-        			<input type="text" id="userId" name="userId" placeholder="USER ID">
-				</td>
-				<td class="t_r f_0">
-					<button type="submit_uid">
-						<img src="./index_files/btn_change.png" class="h_40">
-					</button>
 				</td>
 			</tr>
 			<tr>
@@ -88,6 +82,9 @@
 		<footer class="f_0">
 			<div class="footer_marquee">
 				<div class="footer w_480">
+					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 480 50" preserveAspectRatio="none" style="height:50px">
+						<path d="M0,0 v25 q5,5 10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 v-25 Z" fill="#7cbc29"></path>
+					</svg>
 					<div class="m_15 m_t_0 f_13">
 						<div class="m_5"><a href="http://otogame-net.com/agreement/" target="_blank" class="white">利用規約1</a></div>
 						<div class="m_5"><a href="/index_files/rules2.txt" target="_blank" class="white">利用規約(追加)</a></div>
@@ -102,14 +99,14 @@
 
 
 <script>
-document.getElementById('settingsForm').addEventListener('submit_uid', function(event) {
+document.getElementById('settingsForm').addEventListener('submit', function(event) {
     event.preventDefault(); // 阻止表单默认提交行为
 	
-    var userId = document.getElementById('userId').value;
-
-    localStorage.setItem('userId', userId);
+    var userName = document.getElementById('username').value;
+    localStorage.setItem('username', userName);
 
 });
+
 
 </script>
 </body></html>

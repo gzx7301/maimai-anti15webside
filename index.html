@@ -185,28 +185,25 @@ document.getElementById("localStorage.pagecount").innerText = localStorage.pagec
 
 // 获取 localStorage 中的 UID 和用户名
 var uid = localStorage.getItem('UID');
-var username = localStorage.getItem('Username');
+var username = localStorage.getItem('username');
+var usernameElement = document.getElementById('username');
 
-// 在页面上显示 UID 和用户名
-if (uid && username) {
-    document.getElementById('uid').textContent = uid;
-    document.getElementById('username').textContent = username;
-}
+usernameElement.textContent = username;
 
-
+id="startButton"
 // 从LocalStorage中获取uid
 var uid = localStorage.getItem('uid');
 
-// 获取输入框元素
 var inputElement = document.getElementById('myInput');
-
+var qrElement = document.getElementById('startButton');
 // 检查uid是否存在
-if (uid) {
-    // 如果uid存在，隐藏输入框
-    inputElement.style.display = 'none';
+if (uid === null || uid === '-1') {
+    // 如果uid不存在或等于-1，显示输入框
+	inputElement.style.display = 'block';
 } else {
-    // 如果uid不存在，显示输入框
-    inputElement.style.display = 'block';
+    // 如果uid存在且不等于-1，隐藏输入框
+	inputElement.style.display = 'none';
+	qrElement.style.display = 'none';
 }
 
 
