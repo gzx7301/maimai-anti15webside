@@ -57,25 +57,46 @@
 <div class="p_15">
 	<img src="./index_files/title_setting.png" class="title">
 	<div class="town_block m_t_10 p_10 p_b_0 f_14 t_l black">
-		<form id="settingsForm">
+		
 		<table>
-			<tbody><tr>
+			<tbody><form id="MyForm"><tr>
 				<td>
 					<label for="username">用户名</label>
 					<input type="text" id="username" name="username" placeholder="USER NAME">
 				</td>
 				<td class="t_r f_0">
-					<button type="submit">
+					<button  type="submit" id="submit_name">
+						<img src="./index_files/btn_change.png" class="h_40">
+					</button>		
+				</td>
+				<td colspan="2"><img src="./index_files/line_01.png" class="w_430"></td>
+			</tr>
+				<td>
+					<label for="uid">UID</label>
+					<input type="text" id="uid" name="uid" placeholder="UID(唯一且不可改变)">
+				</td>
+				<td class="t_r f_0">
+					<button  type="submit" id="submit_uid">
 						<img src="./index_files/btn_change.png" class="h_40">
 					</button>
 						
-					</a>
+					<td colspan="2"><img src="./index_files/line_01.png" class="w_430"></td>
 				</td>
-			</tr>
 			<tr>
 				<td colspan="2"><img src="./index_files/line_01.png" class="w_430"></td>
 			</tr>
-		</tbody></table></form>
+			<td>
+				<label for="uid">清除存储的 UID (从网站登出)</label>
+			</td>
+			<td class="t_r f_0">
+				<button id="clearUidButton">
+					<img src="./index_files/btn_change.png" class="h_40">
+				</button>
+			</td>
+			</tr>	
+				<td colspan="2"><img src="./index_files/line_01.png" class="w_430"></td>
+			</tr>
+		</form></tbody></table>
 	</div>
 </div>
 
@@ -99,14 +120,34 @@
 
 
 <script>
-document.getElementById('settingsForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // 阻止表单默认提交行为
-	
-    var userName = document.getElementById('username').value;
-    localStorage.setItem('username', userName);
+document.getElementById("submit_uid").addEventListener("click", function(event) {
+    event.preventDefault(); // 阻止表单的默认提交行为
 
+    var uid = document.getElementById("uid").value;
+
+    localStorage.setItem("uid", uid);
+
+    alert("UID已保存到LocalStorage");
 });
 
+document.getElementById("submit_name").addEventListener("click", function(event) {
+    event.preventDefault(); // 阻止表单的默认提交行为
+
+    var username = document.getElementById("username").value;
+
+    localStorage.setItem("username", username);
+
+    alert("Username已保存到LocalStorage");
+});
+
+var clearUidButton = document.getElementById('clearUidButton');
+
+// 为按钮添加点击事件监听器
+clearUidButton.addEventListener('click', function() {
+	// 清除LocalStorage中的uid值
+	localStorage.removeItem('uid');
+	alert('已清除uid值');
+});
 
 </script>
 </body></html>

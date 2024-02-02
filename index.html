@@ -58,7 +58,7 @@
 		<div class="p_l_10 f_l">
 			<div class="trophy_block trophy_Normal p_3 t_c f_0">
 				<div class="trophy_inner_block f_13">
-					<div >该设备已访问 ↓↓ 次</div>
+					<div id="islogin">该设备已访问 ↓↓ 次</div>
 				</div>
 			</div>
 			<div class="m_b_5">
@@ -85,7 +85,10 @@
 		<input type="text" minlength="2" id="myInput" placeholder="扫描或输入SGWCMAID...">	
 	
 <div class="town_block m_15 p_15">
-		<button id="upload" onclick="postData()">
+		<button id="upload1" onclick="postData1()">
+			<img src="./img/logout.png" alt="提交" class="w_120 m_15 m_t_5">
+		</button>
+		<button id="upload2" onclick="postData2()">
 			<img src="./img/logout.png" alt="提交" class="w_120 m_15 m_t_5">
 		</button>
 		<button id="startButton" onclick="scanQR()">
@@ -149,8 +152,9 @@
             });
         });
 	}
-	
-	function postData() {
+
+	function postData1() {
+		//这段没写对LocalStorg的适配
   		var x = document.getElementById("myInput").value;
   		if (x == null || x == "") {
    		 alert("需要输入SGWCMAID");
@@ -158,6 +162,7 @@
   		}
 		if (!isClicked) {
     		isClicked = true;
+			document.getElementById("unlock.result").innerText = "正在发送请求"
 			var inputVal = document.getElementById("myInput").value;
    			var xhr = new XMLHttpRequest();
    			xhr.open("POST", "https://api.gzx7301.top/logout", true);
@@ -174,8 +179,37 @@
    	 		 }, 500);  // 500毫秒后，允许再次点击
  		}
     
-}
+    }
 
+
+
+	function postData2() {
+		//这段对LocalStorg的适配
+  		var x = localStorage.getItem('uid');
+  		if (x == null || x == "") {
+   		 alert("localStorage读取UID错误,请刷新页面或重新登入网站");
+   		 return false;
+  		}
+		if (!isClicked) {
+    		isClicked = true;
+			document.getElementById("unlock.result").innerText = "正在发送请求"
+			var inputVal = localStorage.getItem('uid');
+   			var xhr = new XMLHttpRequest();
+   			xhr.open("POST", "https://api.gzx7301.top/logoutid", true);
+			//xhr.open("POST", "http://localhost:8888/logoutid", true);
+   			xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    		xhr.onreadystatechange = function() {
+      		if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+     		    document.getElementById("unlock.result").innerText = this.responseText;
+      		  }
+   		 	 }
+   			xhr.send("id=" + inputVal);
+    		setTimeout(function() {
+     			isClicked = false;
+   	 		 }, 500);  // 500毫秒后，允许再次点击
+ 		}
+    
+}
 
 if(localStorage.pagecount)
     localStorage.pagecount = Number(localStorage.pagecount) + 1;
@@ -188,24 +222,34 @@ var uid = localStorage.getItem('UID');
 var username = localStorage.getItem('username');
 var usernameElement = document.getElementById('username');
 
+var islogin = localStorage.getItem('islogin');
+var isloginElement = document.getElementById('islogin');
+
+var upload1 = document.getElementById("upload1");
+var upload2 = document.getElementById("upload2");
+
 usernameElement.textContent = username;
 
-id="startButton"
 // 从LocalStorage中获取uid
 var uid = localStorage.getItem('uid');
 
 var inputElement = document.getElementById('myInput');
 var qrElement = document.getElementById('startButton');
 // 检查uid是否存在
-if (uid === null || uid === '-1') {
+if (uid === null || uid === '-1' || uid === '1' || uid === '0') {
     // 如果uid不存在或等于-1，显示输入框
 	inputElement.style.display = 'block';
+	upload2.style.display = 'none';
+	isloginElement.textContent = "( 网站未登入 ) 该设备已访问 ↓↓ 次";
+
+	
 } else {
     // 如果uid存在且不等于-1，隐藏输入框
 	inputElement.style.display = 'none';
 	qrElement.style.display = 'none';
+	upload1.style.display = 'none';
+	isloginElement.textContent = "( 网站已登入 ) 该设备已访问 ↓↓ 次";
 }
-
 
 </script>
 
