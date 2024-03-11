@@ -160,7 +160,7 @@
 			document.getElementById("unlock.result").innerText = "正在发送请求"
 			var inputVal = document.getElementById("myInput").value;
    			var xhr = new XMLHttpRequest();
-   			xhr.open("POST", "http://yxvm.gzx7301.top:23056/logout", true);
+   			xhr.open("POST", "https://yxvm.gzx7301.top:23056/logout", true);
 			//xhr.open("POST", "http://localhost:8888/logout", true);
    			xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     		xhr.onreadystatechange = function() {
@@ -190,7 +190,7 @@
 			document.getElementById("unlock.result").innerText = "正在发送请求"
 			var inputVal = localStorage.getItem('uid');
    			var xhr = new XMLHttpRequest();
-   			xhr.open("POST", "http://yxvm.gzx7301.top:23056/logoutid", true);
+   			xhr.open("POST", "https://yxvm.gzx7301.top:23056/logoutid", true);
 			//xhr.open("POST", "http://localhost:8888/logoutid", true);
    			xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     		xhr.onreadystatechange = function() {
