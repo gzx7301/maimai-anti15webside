@@ -57,7 +57,7 @@
 		<div class="p_l_10 f_l">
 			<div class="trophy_block trophy_Normal p_3 t_c f_0">
 				<div class="trophy_inner_block f_13">
-					<div id="islogin">ver.0.23,loading..</div>
+					<div id="islogin">ver.0.23.2,loading..</div>
 				</div>
 			</div>
 			<div class="m_b_5">
@@ -168,7 +168,7 @@
      		    document.getElementById("unlock.result").innerText = this.responseText;
       		  }
    		 	 }
-   			xhr.send("qr=" + inputVal);
+   			xhr.send("?qr=" + inputVal);
     		setTimeout(function() {
      			isClicked = false;
    	 		 }, 500);  // 500毫秒后，允许再次点击
@@ -198,7 +198,7 @@
      		    document.getElementById("unlock.result").innerText = this.responseText;
       		  }
    		 	 }
-   			xhr.send("id=" + inputVal);
+   			xhr.send("?id=" + inputVal);
     		setTimeout(function() {
      			isClicked = false;
    	 		 }, 500);  // 500毫秒后，允许再次点击
