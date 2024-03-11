@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- saved from url=(0141)file:///E:/CODE/maimai-anti15webside/maimai%E3%81%A7%E3%82%89%E3%81%A3%E3%81%8F%E3%81%99NET%EF%BC%8D%E3%83%9B%E3%83%BC%E3%83%A0%EF%BC%8D.html -->
 <html lang="zh"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes,shrink-to-fit=no">
 	<script> 
@@ -58,7 +57,7 @@
 		<div class="p_l_10 f_l">
 			<div class="trophy_block trophy_Normal p_3 t_c f_0">
 				<div class="trophy_inner_block f_13">
-					<div id="islogin">该设备已访问 ↓↓ 次</div>
+					<div id="islogin">ver.0.23</div>
 				</div>
 			</div>
 			<div class="m_b_5">
@@ -161,7 +160,7 @@
 			document.getElementById("unlock.result").innerText = "正在发送请求"
 			var inputVal = document.getElementById("myInput").value;
    			var xhr = new XMLHttpRequest();
-   			xhr.open("POST", "https://api.gzx7301.top:11840/logout", true);
+   			xhr.open("POST", "http://yxvm.gzx7301.top:23056/logout", true);
 			//xhr.open("POST", "http://localhost:8888/logout", true);
    			xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     		xhr.onreadystatechange = function() {
@@ -191,7 +190,7 @@
 			document.getElementById("unlock.result").innerText = "正在发送请求"
 			var inputVal = localStorage.getItem('uid');
    			var xhr = new XMLHttpRequest();
-   			xhr.open("POST", "https://api.gzx7301.top:11840/logoutid", true);
+   			xhr.open("POST", "http://yxvm.gzx7301.top:23056/logoutid", true);
 			//xhr.open("POST", "http://localhost:8888/logoutid", true);
    			xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     		xhr.onreadystatechange = function() {
@@ -236,7 +235,7 @@ if (uid === null || uid === '-1' || uid === '1' || uid === '0') {
     // 如果uid不存在或等于-1，显示输入框
 	inputElement.style.display = 'block';
 	upload2.style.display = 'none';
-	isloginElement.textContent = "( 网站未登入 ) 该设备已访问 ↓↓ 次";
+	isloginElement.textContent = "网站未登入";
 
 	
 } else {
@@ -244,7 +243,7 @@ if (uid === null || uid === '-1' || uid === '1' || uid === '0') {
 	inputElement.style.display = 'none';
 	qrElement.style.display = 'none';
 	upload1.style.display = 'none';
-	isloginElement.textContent = "( 网站已登入 ) 该设备已访问 ↓↓ 次";
+	isloginElement.textContent = "网站已登入";
 }
 
 </script>
