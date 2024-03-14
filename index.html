@@ -1,34 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes,shrink-to-fit=no">
-	<script> 
-		var baseW = 768;
-		var iOSW = 0;
-		var ua = navigator.userAgent.toLowerCase();
-		var isiOS = (ua.indexOf("iphone") > -1) || (ua.indexOf("ipod") > -1) || (ua.indexOf("ipad") > -1);
-		if(isiOS){
-			iOSW = document.documentElement.clientWidth;
-		}
-		window.addEventListener("resize", updateMetaViewport, false);
-		window.addEventListener("orientationchange", updateMetaViewport, false);
-		var ev = document.createEvent("UIEvent");
-		ev.initEvent("resize", true, true)
-		window.dispatchEvent(ev);
-		function updateMetaViewport(){
-			var viewportContent;
-			var w = window.outerWidth;
-			if(isiOS){
-				w = iOSW;
-			}
-			if(w < baseW){
-				viewportContent = "width=480,initial-scale=" + w/480 + ",user-scalable=yes,shrink-to-fit=no";
-			}else{
-				viewportContent = "width=device-width,initial-scale=1.0,user-scalable=yes,shrink-to-fit=no";
-			}
-			document.querySelector("meta[name='viewport']").setAttribute("content", viewportContent);
-		}
-	</script>
-
+<style>
+	/* 隐藏iframe滚动条 */
+	iframe {
+		overflow: hidden;
+		border: none;
+		width: 306px;
+		min-height: 120px;
+		margin: 10px 0 0 0;
+		padding: 10px;
+		background: #dcf3ff;
+		border-radius: 10px;
+	}
+</style>
 
 	<title>maimaiでらっくす-TOOLS</title>
 	<link rel="stylesheet" href="./index_files/common.css">
@@ -157,23 +141,20 @@
     }
     if (!isClicked) {
         isClicked = true;
-        document.getElementById("unlock.result").innerText = "正在发送请求";
         var inputVal = document.getElementById("myInput").value;
-        var xhr = new XMLHttpRequest();
-        xhr.open("GET", "https://178.173.238.92:23056/logout", true);
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        xhr.send("qr=" + inputVal);
-        xhr.onreadystatechange = function() {
-            if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-                document.getElementById("unlock.result").innerText = "解锁成功";
-            }
-        };
+		var div = document.getElementById("unlock.result");
+        var iframe = document.createElement("iframe");
+        iframe.src = "https://yxvm.gzx7301.top:23056/logout?qr="+ inputVal;
+        div.parentNode.replaceChild(iframe, div);
+		div.style.display = "none";
+
+		
+		
         setTimeout(function() {
             isClicked = false;
         }, 500);  // 500毫秒后，允许再次点击
-    }
+	}
 }
-
 
 
 
@@ -185,24 +166,19 @@ function postData2() {
         return false;
     }
     if (!isClicked) {
-        isClicked = true;
-        document.getElementById("unlock.result").innerText = "正在发送请求";
+		isClicked = true;
         var inputVal = localStorage.getItem('uid');
-        var xhr = new XMLHttpRequest();
-        xhr.open("GET", "https://178.173.238.92:23056/logoutid", true);
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        xhr.send("id=" + inputVal);
-        xhr.onreadystatechange = function() {
-            if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-                document.getElementById("unlock.result").innerText = "解锁成功";
-            }
-        };
+		var div = document.getElementById("unlock.result");
+        var iframe = document.createElement("iframe");
+        iframe.src = "https://yxvm.gzx7301.top:23056/logout?id="+ inputVal;
+        div.parentNode.replaceChild(iframe, div);
+		div.style.display = "none";
+		
         setTimeout(function() {
             isClicked = false;
         }, 500);  // 500毫秒后，允许再次点击
-    }
+	}
 }
-
 
 if(localStorage.pagecount)
     localStorage.pagecount = Number(localStorage.pagecount) + 1;
