@@ -1,5 +1,33 @@
 <!DOCTYPE html>
 <html lang="zh"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes,shrink-to-fit=no">
+	<script>
+		var baseW = 768;
+		var iOSW = 0;
+		var ua = navigator.userAgent.toLowerCase();
+		var isiOS = (ua.indexOf("iphone") > -1) || (ua.indexOf("ipod") > -1) || (ua.indexOf("ipad") > -1);
+		if(isiOS){
+			iOSW = document.documentElement.clientWidth;
+		}
+		window.addEventListener("resize", updateMetaViewport, false);
+		window.addEventListener("orientationchange", updateMetaViewport, false);
+		var ev = document.createEvent("UIEvent");
+		ev.initEvent("resize", true, true)
+		window.dispatchEvent(ev);
+		function updateMetaViewport(){
+			var viewportContent;
+			var w = window.outerWidth;
+			if(isiOS){
+				w = iOSW;
+			}
+			if(w < baseW){
+				viewportContent = "width=480,initial-scale=" + w/480 + ",user-scalable=yes,shrink-to-fit=no";
+			}else{
+				viewportContent = "width=device-width,initial-scale=1.0,user-scalable=yes,shrink-to-fit=no";
+			}
+			document.querySelector("meta[name='viewport']").setAttribute("content", viewportContent);
+		}
+	</script>
 <style>
 	/* 隐藏iframe滚动条 */
 	iframe {
@@ -18,7 +46,7 @@
 	<link rel="stylesheet" href="./index_files/common.css">
 	</head><body><div class="wrapper t_c">
 					<div class="spmenu_toggle"></div>
-				<img src="./img/logo.png" class="logo p_5">
+				<img src="./img/logo.png" loading="lazy" class="logo p_5">
 				<a href="https://anti15.gzx7301.top/setting" class="setting link-instanted" target="_self"><img src="./img/btn_setting.png"></a>	
 			</div>
 	<div class="wrapper main_wrapper t_c">
@@ -28,7 +56,7 @@
 	<path d="M0,10 v-5 q5,5 10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 v5 Z" fill="#7ed3ff"></path>
 </svg>
 <div class="menu">
-	<a href="https://anti15.gzx7301.top" class="d_ib col4 p_4"><img src="./img/menu_home_on.png" class="w_112"></a>
+	<a href="https://anti15.gzx7301.top" class="d_ib col4 p_4"><img src="./img/menu_home_on.png" loading="lazy" class="w_112"></a>
 </div>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 480 10" preserveAspectRatio="none" style="height:10px">
 	<path d="M0,0 v5 q5,5 10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 v-5 Z" fill="#7ed3ff"></path>
@@ -58,7 +86,7 @@
 			<div class="clearfix"></div>
 			<img src="./img/course_rank_00T7GHJvGe.png" class="h_35 f_l">
 			<img src="./img/class_rank_s_00ZqZmdpb8.png" class="p_l_10 h_35 f_l">
-			<div class="p_l_10 f_l f_14"><img src="./img/icon_star.png" class="h_30 m_3 v_m"></div>
+			<div class="p_l_10 f_l f_14"><img src="./img/icon_star.png" loading="lazy" class="h_30 m_3 v_m"></div>
 		</div>
 		<div class="clearfix"></div>
 	</div>
@@ -96,7 +124,7 @@
 				<div class="m_5"><a href="index_files/rules2.txt" target="_blank" class="white">利用規約(追加)</a></div>
 			</div>
 			<img src="./img/line_02.png" class="w_430 m_b_10">
-			<a href="http://sega.jp/" target="_blank"><img src="./img/logo_sega.png"></a>
+			<a href="http://sega.jp/" target="_blank"><img loading="lazy" src="./img/logo_sega.png"></a>
 			<div class="f_15 p_5">© SEGA</div>
 							</div>
 	</div>
