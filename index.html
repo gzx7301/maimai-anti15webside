@@ -57,7 +57,7 @@
 		<div class="p_l_10 f_l">
 			<div class="trophy_block trophy_Normal p_3 t_c f_0">
 				<div class="trophy_inner_block f_13">
-					<div id="islogin">ver.0.23.4,loading..</div>
+					<div id="islogin">ver.0.23.6,loading..</div>
 				</div>
 			</div>
 			<div class="m_b_5">
@@ -149,62 +149,60 @@
 	}
 
 	function postData1() {
-		//这段没写对LocalStorg的适配
-  		var x = document.getElementById("myInput").value;
-  		if (x == null || x == "") {
-   		 alert("需要输入SGWCMAID");
-   		 return false;
-  		}
-		if (!isClicked) {
-    		isClicked = true;
-			document.getElementById("unlock.result").innerText = "正在发送请求"
-			var inputVal = document.getElementById("myInput").value;
-   			var xhr = new XMLHttpRequest();
-   			xhr.open("POST", "https://yxvm.gzx7301.top:23056/logout", true);
-			//xhr.open("POST", "http://localhost:8888/logout", true);
-   			xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    		xhr.onreadystatechange = function() {
-      		if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-     		    document.getElementById("unlock.result").innerText = this.responseText;
-      		  }
-   		 	 }
-   			xhr.send("qr=" + inputVal);
-    		setTimeout(function() {
-     			isClicked = false;
-   	 		 }, 500);  // 500毫秒后，允许再次点击
- 		}
-    
+    // 这段没写对LocalStorg的适配
+    var x = document.getElementById("myInput").value; 
+    if (x == null || x == "") {
+        alert("需要输入SGWCMAID");
+        return false;
     }
-
-
-
-	function postData2() {
-		//这段对LocalStorg的适配
-  		var x = localStorage.getItem('uid');
-  		if (x == null || x == "") {
-   		 alert("localStorage读取UID错误,请刷新页面或重新登入网站");
-   		 return false;
-  		}
-		if (!isClicked) {
-    		isClicked = true;
-			document.getElementById("unlock.result").innerText = "正在发送请求"
-			var inputVal = localStorage.getItem('uid');
-   			var xhr = new XMLHttpRequest();
-   			xhr.open("POST", "https://yxvm.gzx7301.top:23056/logoutid", true);
-			//xhr.open("POST", "http://localhost:8888/logoutid", true);
-   			xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    		xhr.onreadystatechange = function() {
-      		if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-     		    document.getElementById("unlock.result").innerText = this.responseText;
-      		  }
-   		 	 }
-   			xhr.send("id=" + inputVal);
-    		setTimeout(function() {
-     			isClicked = false;
-   	 		 }, 500);  // 500毫秒后，允许再次点击
- 		}
-    
+    if (!isClicked) {
+        isClicked = true;
+        document.getElementById("unlock.result").innerText = "正在发送请求";
+        var inputVal = document.getElementById("myInput").value;
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "https://178.173.238.92:23056/logout", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.send("qr=" + inputVal);
+        xhr.onreadystatechange = function() {
+            if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+                document.getElementById("unlock.result").innerText = "解锁成功";
+            }
+        };
+        setTimeout(function() {
+            isClicked = false;
+        }, 500);  // 500毫秒后，允许再次点击
+    }
 }
+
+
+
+
+function postData2() {
+    // 这段对LocalStorg的适配
+    var x = localStorage.getItem('uid');
+    if (x == null || x == "") {
+        alert("从本地读取UID时出现错误，/n 请在设置页面退出登录网站");
+        return false;
+    }
+    if (!isClicked) {
+        isClicked = true;
+        document.getElementById("unlock.result").innerText = "正在发送请求";
+        var inputVal = localStorage.getItem('uid');
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "https://178.173.238.92:23056/logoutid", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.send("id=" + inputVal);
+        xhr.onreadystatechange = function() {
+            if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+                document.getElementById("unlock.result").innerText = "解锁成功";
+            }
+        };
+        setTimeout(function() {
+            isClicked = false;
+        }, 500);  // 500毫秒后，允许再次点击
+    }
+}
+
 
 if(localStorage.pagecount)
     localStorage.pagecount = Number(localStorage.pagecount) + 1;
