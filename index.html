@@ -209,7 +209,7 @@ function postData2() {
     // 这段对LocalStorg的适配
     var x = localStorage.getItem('uid');
     if (x == null || x == "") {
-        alert("从本地读取UID时出现错误，/n 请在设置页面退出登录网站");
+        alert("从本地读取UID时出现错误，/n 请重新登录网站");
         return false;
     }
     if (!isClicked) {
@@ -217,7 +217,7 @@ function postData2() {
         var inputVal = localStorage.getItem('uid');
 		var div = document.getElementById("unlock.result");
         var iframe = document.createElement("iframe");
-        iframe.src = "https://yxvm.gzx7301.top:23056/logoutID?id="+ inputVal;
+        iframe.src = "https://yxvm.gzx7301.top:23056/logoutid?id="+ inputVal;
         div.parentNode.replaceChild(iframe, div);
 		
         setTimeout(function() {
