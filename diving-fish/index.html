@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes,shrink-to-fit=no">
+	<script>
+		var baseW = 768;
+		var iOSW = 0;
+		var ua = navigator.userAgent.toLowerCase();
+		var isiOS = (ua.indexOf("iphone") > -1) || (ua.indexOf("ipod") > -1) || (ua.indexOf("ipad") > -1);
+		if(isiOS){
+			iOSW = document.documentElement.clientWidth;
+		}
+		window.addEventListener("resize", updateMetaViewport, false);
+		window.addEventListener("orientationchange", updateMetaViewport, false);
+		var ev = document.createEvent("UIEvent");
+		ev.initEvent("resize", true, true)
+		window.dispatchEvent(ev);
+		function updateMetaViewport(){
+			var viewportContent;
+			var w = window.outerWidth;
+			if(isiOS){
+				w = iOSW;
+			}
+			if(w < baseW){
+				viewportContent = "width=480,initial-scale=" + w/480 + ",user-scalable=yes,shrink-to-fit=no";
+			}else{
+				viewportContent = "width=device-width,initial-scale=1.0,user-scalable=yes,shrink-to-fit=no";
+			}
+			document.querySelector("meta[name='viewport']").setAttribute("content", viewportContent);
+		}
+	</script>
+<style>
+	/* 隐藏iframe滚动条 */
+	iframe {
+		overflow: hidden;
+		border: none;
+		width: 306px;
+		min-height: 120px;
+		margin: 10px 0 0 0;
+		padding: 10px;
+		background: #dcf3ff;
+		border-radius: 10px;
+	}
+	.modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+</style>
+
+	<title>MaiMai工具</title>
+	<link rel="stylesheet" href="https://maimai.wahlap.com/maimai-mobile/css/common.css?ver=1.30?20220202" />
+	<link rel="apple-touch-icon-precomposed" href="https://maimai.wahlap.com/maimai-mobile/apple-touch-icon.png">
+	<link rel="icon" type="image/png" href="https://maimai.wahlap.com/maimai-mobile/apple-touch-icon.png">
+
+
+
+	</head><body onload="showAlert()"><div class="wrapper t_c">
+<div class="see_through_block m_15 m_t_10 p_10 p_r t_l f_0">
+	<img loading="lazy" src=https://maimai.wahlap.com/maimai-mobile/img/Chara/70e72a5297acca0c.png class="w_120 m_t_10 f_r">
+		<div id="unlock.result" class="comment_block break f_l f_12">这个框里是结果哟<br><br>免费服务请勿倒卖哟<br><br>请阅读并理解免责声明后使用本网站</div>
+		<div class="clearfix"></div>
+		<input type="text" minlength="2" id="user" placeholder="输入水鱼查分器用户名">
+		<input type="text" minlength="2" id="passworld" placeholder="输入水鱼查分器密码">
+		<input type="text" minlength="2" id="qrcode" placeholder="输入二维码识别后的内容">	
+	
+<div class="town_block m_15 p_15">
+		<button id="upload1" onclick="postData1()">
+			<img src="https://maimai.wahlap.com/maimai-mobile/img/btn_logout.png" alt="提交" class="w_120 m_15 m_t_5">
+		</button>
+</div>
+
+</div>
+
+
+<footer class="f_0">
+</footer>
+	
+	
+	
+
+<script>
+	var isClicked = false;
+	
+
+
+	function postData1() {
+    // 这段没写对LocalStorg的适配
+    var x1 = document.getElementById("user").value; 
+	var x2 = document.getElementById("passworld").value;
+	var x3 = document.getElementById("qrcode").value;
+    if (x1 == null || x1 == "" || x2 == null || x2 == "" || x3 == null || x3 == "") {
+        alert("请检查是否都输入了");
+        return false;
+    }
+    if (!isClicked) {
+        isClicked = true;
+        var inputVal1 = document.getElementById("user").value;
+		var inputVal2 = document.getElementById("passworld").value;
+		var inputVal3 = document.getElementById("qrcode").value;
+		var div = document.getElementById("unlock.result");
+        var iframe = document.createElement("iframe");
+        iframe.src = "https://yxvm.gzx7301.top:23056/upload_fish?user="+ inputVal1 + "&password=" + inputVal2 + "&qr=" +inputVal3;
+        div.parentNode.replaceChild(iframe, div);
+
+		
+		
+        setTimeout(function() {
+            isClicked = false;
+        }, 500);  // 500毫秒后，允许再次点击
+	}
+}
+
+
+
+
+function showAlert() {
+            
+        }
+
+</script>
+
+</div></body></html>
