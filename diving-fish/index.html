@@ -112,21 +112,21 @@
 	<img src=https://maimai.wahlap.com/maimai-mobile/img/line_01.png class="user_data_block_line">
 	<div class="clearfix"></div>
 	<a href="https://github.com/gzx7301/maimai-anti15webside" target="_blank"><div class="p_l_10 f_l f_14"><img src="https://maimai.wahlap.com/maimai-mobile/img/icon_star.png" loading="lazy" class="h_30 m_3 v_m"></div></a>
-	<div class="p_l_10 f_l f_14"> 初次加载较慢,第二次就好了哦<br>欢迎让其他人也来使用本服务 </div>
+	<div class="p_l_10 f_l f_14"> 初次加载较慢,请耐心等待~<br>欢迎让其他人也来使用本服务 </div>
 </div>
 <div class="clearfix"></div>
 </div>
 <img loading="lazy" src=https://maimai.wahlap.com/maimai-mobile/img/Chara/70e72a5297acca0c.png class="w_120 m_t_10 f_r">
-		<div id="unlock.result" class="comment_block break f_l f_12">快速更新水鱼查分器<br><br>免费服务请勿倒卖哟<br><br>使用时需要二维码有效</div>
+		<div id="unlock.result" class="comment_block break f_l f_12">快速更新水鱼查分器<br><br>免费服务请勿倒卖哟<br><br>使用时需二维码有效</div>
 		<div class="clearfix"></div>
 		<input type="text" minlength="2" id="user" placeholder="输入水鱼查分器用户名">
 		<input type="text" minlength="2" id="passworld" placeholder="输入水鱼查分器密码">
-		<input type="text" minlength="2" id="qrcode" placeholder="输入二维码识别后的内容">	
+		<input type="text" minlength="2" id="qrcode" placeholder="输入二维码识别的内容">	
 </div>
 
 <div class="town_block m_15 p_15">
 		<button id="upload1" onclick="postData1()">
-			<img src="https://maimai.wahlap.com/maimai-mobile/img/btn_logout.png" alt="提交" class="w_120 m_15 m_t_5">
+			<img src="https://maimai.wahlap.com/maimai-mobile/img/btn_change.png" alt="提交" class="w_120 m_15 m_t_5">
 		</button>
 </div>
 
@@ -147,25 +147,23 @@
 			<img src="https://maimai.wahlap.com/maimai-mobile/img/line_02.png" class="w_430 m_b_10">
 			<a href="http://sega.jp/" target="_blank"><img loading="lazy" src=https://maimai.wahlap.com/maimai-mobile/img/logo_sega.png></a>
 			<div class="f_15 p_5">© SEGA</div>
+			<div class="f_15 p_5">© diving-fish</div>
 		</div>
 	</div>
 </footer>
 	
 	
-	
 
 <script>
 	var isClicked = false;
-	
 
 
 	function postData1() {
-    // 这段没写对LocalStorg的适配
     var x1 = document.getElementById("user").value; 
 	var x2 = document.getElementById("passworld").value;
 	var x3 = document.getElementById("qrcode").value;
     if (x1 == null || x1 == "" || x2 == null || x2 == "" || x3 == null || x3 == "") {
-        alert("请检查是否都输入了");
+        alert("请检查是否所有输入框都输入了内容");
         return false;
     }
     if (!isClicked) {
