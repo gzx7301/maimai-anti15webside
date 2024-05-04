@@ -115,21 +115,23 @@
 	<div class="p_l_10 f_l f_14"> 初次加载较慢,请耐心等待~<br>欢迎让其他人也来使用本服务 </div>
 </div>
 <div class="clearfix"></div>
-</div>
-<img loading="lazy" src=https://maimai.wahlap.com/maimai-mobile/img/Chara/70e72a5297acca0c.png class="w_120 m_t_10 f_r">
-		<div id="unlock.result" class="comment_block break f_l f_12">快速更新水鱼查分器<br><br>免费服务请勿倒卖哟<br><br>使用时需二维码有效</div>
-		<div class="clearfix"></div>
-		<input type="text" minlength="2" id="user" placeholder="输入水鱼查分器用户名">
-		<input type="text" minlength="2" id="passworld" placeholder="输入水鱼查分器密码">
-		<input type="text" minlength="2" id="qrcode" placeholder="输入二维码识别的内容">	
-</div>
+<form id="loginForm">
+	</div>
+	<img loading="lazy" src=https://maimai.wahlap.com/maimai-mobile/img/Chara/70e72a5297acca0c.png class="w_120 m_t_10 f_r">
+			<div id="result" class="comment_block break f_l f_12">快速更新水鱼查分器<br><br>免费服务请勿倒卖哟<br><br>使用时需二维码有效</div>
+			<div class="clearfix"></div>
 
-<div class="town_block m_15 p_15">
-		<button id="upload1" onclick="postData1()">
-			<img src="https://maimai.wahlap.com/maimai-mobile/img/btn_change.png" alt="提交" class="w_120 m_15 m_t_5">
-		</button>
-</div>
+			<input type="text" minlength="2" id="user" placeholder="输入水鱼查分器用户名">
+			<input type="text" minlength="2" id="password" placeholder="输入水鱼查分器密码">
+			<input type="text" minlength="2" id="qrcode" placeholder="输入二维码识别的内容">	
+	</div>
 
+	<div class="town_block m_15 p_15">
+			<button id="upload1" type="submit">
+				<img src="https://maimai.wahlap.com/maimai-mobile/img/btn_change.png" alt="提交" class="w_120 m_15 m_t_5">
+			</button>
+	</div>
+</form>
 
 <footer class="f_0">
 	<div class="footer_marquee">
@@ -153,36 +155,8 @@
 </footer>
 	
 	
-
+<script src="post.js"></script>
 <script>
-	var isClicked = false;
-
-
-	function postData1() {
-    var x1 = document.getElementById("user").value; 
-	var x2 = document.getElementById("passworld").value;
-	var x3 = document.getElementById("qrcode").value;
-    if (x1 == null || x1 == "" || x2 == null || x2 == "" || x3 == null || x3 == "") {
-        alert("请检查是否所有输入框都输入了内容");
-        return false;
-    }
-    if (!isClicked) {
-        isClicked = true;
-        var inputVal1 = document.getElementById("user").value;
-		var inputVal2 = document.getElementById("passworld").value;
-		var inputVal3 = document.getElementById("qrcode").value;
-		var div = document.getElementById("unlock.result");
-        var iframe = document.createElement("iframe");
-        iframe.src = "https://yxvm.gzx7301.top:23056/upload_fish?user="+ inputVal1 + "&password=" + inputVal2 + "&qr=" +inputVal3;
-        div.parentNode.replaceChild(iframe, div);
-
-		
-		
-        setTimeout(function() {
-            isClicked = false;
-        }, 500);  // 500毫秒后，允许再次点击
-	}
-}
 
 if(localStorage.pagecount)
     localStorage.pagecount = Number(localStorage.pagecount) + 1;
