@@ -123,19 +123,6 @@
 </div>
 
 <div class="town_block m_15 p_15">
-		<button id="upload1" onclick="postData1()">
-			<img src="https://maimai.wahlap.com/maimai-mobile/img/btn_logout.png" alt="提交" class="w_120 m_15 m_t_5">
-		</button>
-		<button id="upload2" onclick="postData2()">
-			<img src="https://maimai.wahlap.com/maimai-mobile/img/btn_logout.png" alt="提交" class="w_120 m_15 m_t_5">
-		</button>
-		<button id="startButton" onclick="scanQR()">
-			<img src="./img/camara.png" alt="扫码" class="w_120 m_15 m_t_5">
-		</button>
-		<button>
-			<video id="preview" style="display: none;"></video>
-		</button>	
-
 </div>
 
 
@@ -162,121 +149,11 @@
 	
 	
 	
-<script type="text/javascript" src="index_files\instascan.min.js"></script>
 
 <script>
-	var isClicked = false;
-	var video = document.createElement("video");
-	var canvasElement = document.createElement("canvas");
-	var canvas = canvasElement.getContext("2d");
-	
-	function scanQR() {
-		document.getElementById('startButton').addEventListener('click', function() {
-            document.getElementById('preview').style.display = 'block';
-            let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
-            scanner.addListener('scan', function (content) {
-                console.log(content);
-                document.getElementById('myInput').value = content;
-                document.getElementById('preview').style.display = 'none'; // 隐藏视频元素
-                scanner.stop(); // 停止扫描
-            });
-            Instascan.Camera.getCameras().then(function (cameras) {
-				console.print(cameras.length);
-                scanner.start(int(cameras.length)); // 使用第3个摄像头，通常是前置摄像头
-            }).catch(function (e) {
-                console.error(e);
-            });
-        });
-	}
-
-	function postData1() {
-    // 这段没写对LocalStorg的适配
-    var x = document.getElementById("myInput").value; 
-    if (x == null || x == "") {
-        alert("请扫描或输入二维码识别后的内容");
-        return false;
-    }
-    if (!isClicked) {
-        isClicked = true;
-        var inputVal = document.getElementById("myInput").value;
-		var div = document.getElementById("unlock.result");
-        var iframe = document.createElement("iframe");
-        iframe.src = "https://yxvm.gzx7301.top:23056/logout?qr="+ inputVal;
-        div.parentNode.replaceChild(iframe, div);
-
-		
-		
-        setTimeout(function() {
-            isClicked = false;
-        }, 500);  // 500毫秒后，允许再次点击
-	}
-}
-
-
-
-function postData2() {
-    // 这段对LocalStorg的适配
-    var x = localStorage.getItem('uid');
-    if (x == null || x == "") {
-        alert("从本地读取UID时出现错误，/n 请重新登录网站");
-        return false;
-    }
-    if (!isClicked) {
-		isClicked = true;
-        var inputVal = localStorage.getItem('uid');
-		var div = document.getElementById("unlock.result");
-        var iframe = document.createElement("iframe");
-        iframe.src = "https://yxvm.gzx7301.top:23056/logoutid?id="+ inputVal;
-        div.parentNode.replaceChild(iframe, div);
-		
-        setTimeout(function() {
-            isClicked = false;
-        }, 500);  // 500毫秒后，允许再次点击
-	}
-}
-
-if(localStorage.pagecount)
-    localStorage.pagecount = Number(localStorage.pagecount) + 1;
-else
-    localStorage.pagecount = 1;
-document.getElementById("localStorage.pagecount").innerText = localStorage.pagecount;
-
-// 获取 localStorage 中的 UID 和用户名
-var uid = localStorage.getItem('UID');
-var username = localStorage.getItem('username');
-var usernameElement = document.getElementById('username');
-
-var islogin = localStorage.getItem('islogin');
-var isloginElement = document.getElementById('islogin');
-
-var upload1 = document.getElementById("upload1");
-var upload2 = document.getElementById("upload2");
-
-usernameElement.textContent = username;
-
-// 从LocalStorage中获取uid
-var uid = localStorage.getItem('uid');
-
-var inputElement = document.getElementById('myInput');
-var qrElement = document.getElementById('startButton');
-// 检查uid是否存在
-if (uid === null || uid === '-1' || uid === '1' || uid === '0') {
-    // 如果uid不存在或等于-1，显示输入框
-	inputElement.style.display = 'block';
-	upload2.style.display = 'none';
-	isloginElement.textContent = "网站未登入 1.33-A";
-
-	
-} else {
-    // 如果uid存在且不等于-1，隐藏输入框
-	inputElement.style.display = 'none';
-	qrElement.style.display = 'none';
-	upload1.style.display = 'none';
-	isloginElement.textContent = "网站已登入  1.33-A";
-}
 
 function showAlert() {
-		alert("请注意 因服务器续费原因 本网站维护周期截止于2024年6月30日，随后网站将转型为 QQ_bot 若在维护周期结束后仍需要使用服务 请添加QQ群 后续本网站服务也不会收费 请放心使用 该弹窗不影响页面加载/网站功能");
+		alert("网站支持已经结束 因游戏更新原因无法继续提供服务");
     }
 
 </script>
